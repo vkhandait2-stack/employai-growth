@@ -28,15 +28,18 @@ export function SiteFooter() {
       <div className="container-page py-20">
         <div className="grid gap-14 lg:grid-cols-[1.4fr_3fr]">
           <div>
-            <Link to="/" className="flex items-center gap-2.5" aria-label="Indu Divine home">
+            <Link to="/" className="flex items-center gap-2.5" aria-label="Indu Divine AI home">
               <Logo />
               <span className="font-display text-base font-semibold tracking-tight">
-                Indu Divine
+                Indu Divine <span className="text-mist">AI</span>
               </span>
             </Link>
+            <p className="mt-3 font-mono text-[10.5px] uppercase tracking-[0.22em] text-mist">
+              Your AI Workforce Partner
+            </p>
             <p className="mt-6 max-w-sm text-[14.5px] leading-relaxed text-mist">
-              AI Employees that grow your business 24/7. Built for enterprises that
-              measure success in outcomes, not features.
+              AI Employees that answer calls, qualify leads, automate WhatsApp and
+              streamline operations — built for enterprises that measure success in outcomes.
             </p>
             <div className="mt-8 flex items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.18em] text-mist">
               <span className="size-1.5 animate-pulse-dot rounded-full bg-success" />

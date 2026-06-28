@@ -147,6 +147,74 @@ export const SERVICE_ICONS: Record<string, LucideIcon> = {
   "crm-automation": Database,
 };
 
+export interface AIEmployeeStory {
+  slug: string;
+  role: string;
+  name: string;
+  problem: string;
+  solution: string;
+  outcome: string;
+}
+
+export const AI_EMPLOYEES: AIEmployeeStory[] = [
+  {
+    slug: "ai-voice-receptionist",
+    role: "Front-Desk Employee",
+    name: "AI Voice Receptionist",
+    problem: "30–40% of business calls go unanswered — every miss is lost revenue.",
+    solution: "Answers every call 24/7, qualifies the caller, books appointments and routes complex cases to humans with full context.",
+    outcome: "Zero missed calls, higher CSAT, more booked revenue from inbound demand.",
+  },
+  {
+    slug: "ai-sales-employee",
+    role: "Inside Sales Rep",
+    name: "AI Sales Employee",
+    problem: "Speed-to-lead is hours, not seconds — pipelines leak before reps can respond.",
+    solution: "Engages every new lead in under 5 seconds, qualifies BANT, handles objections and books the meeting.",
+    outcome: "3× pipeline coverage and meaningfully higher lead-to-meeting conversion.",
+  },
+  {
+    slug: "ai-whatsapp-sales-agent",
+    role: "Conversation Specialist",
+    name: "AI WhatsApp Sales Agent",
+    problem: "WhatsApp drives the most replies and the lowest conversion — because nobody is fast enough.",
+    solution: "Natural two-way conversations, product recommendations, broadcasts and appointment booking on WhatsApp Business.",
+    outcome: "Higher reply rates, faster qualification, more closed business on the channel customers prefer.",
+  },
+  {
+    slug: "ai-appointment-setter",
+    role: "Scheduling Coordinator",
+    name: "AI Appointment Setter",
+    problem: "Manual scheduling and no-shows quietly destroy operational capacity.",
+    solution: "Books, confirms, reschedules and reminds — across voice, WhatsApp and web — directly into your calendar.",
+    outcome: "Fuller calendars, dramatically fewer no-shows, zero scheduling admin.",
+  },
+  {
+    slug: "ai-outbound-calling",
+    role: "Campaign Operator",
+    name: "AI Calling Campaign Manager",
+    problem: "Outbound is expensive, inconsistent and impossible to scale on hiring alone.",
+    solution: "Launches personalized AI voice campaigns for promotions, renewals, reminders, surveys and admissions at scale.",
+    outcome: "Reach 10× more contacts at a fraction of the cost, with cleaner data and audit trails.",
+  },
+  {
+    slug: "ai-workflow-automation",
+    role: "Operations Engineer",
+    name: "AI Workflow Specialist",
+    problem: "Teams spend 40% of their week on copy-paste between CRM, email, calendars and WhatsApp.",
+    solution: "Connects systems, automates routing, approvals, notifications and handoffs end-to-end.",
+    outcome: "Hours returned to every team, every week — with fewer errors and faster cycle times.",
+  },
+  {
+    slug: "crm-automation",
+    role: "Pipeline Manager",
+    name: "CRM Automation Specialist",
+    problem: "Reps don't update the CRM — so forecasts, follow-ups and reporting all break.",
+    solution: "Captures every interaction, scores leads, triggers next-best-actions and keeps the pipeline immaculate.",
+    outcome: "Trustworthy forecasts, disciplined follow-up, and a sales motion you can actually scale.",
+  },
+];
+
 export interface Industry {
   slug: string;
   name: string;
