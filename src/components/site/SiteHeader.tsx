@@ -96,6 +96,23 @@ export function SiteHeader() {
         </button>
       </div>
 
+      {/* scroll progress hairline */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-px overflow-hidden"
+      >
+        <div
+          className="h-full origin-left transition-transform duration-150 ease-out"
+          style={{
+            transform: `scaleX(${progress})`,
+            background:
+              "linear-gradient(90deg, var(--primary), var(--accent-cyan))",
+          }}
+        />
+      </div>
+
+
+
 
       {open && (
         <div className="lg:hidden">
