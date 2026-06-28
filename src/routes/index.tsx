@@ -266,36 +266,36 @@ function LogoMarquee() {
 }
 
 
-/* ---------------- SERVICES ---------------- */
+/* ---------------- AI EMPLOYEES ---------------- */
 
-function ServicesShowcase() {
+function AIEmployeesShowcase() {
   return (
     <section className="py-28 sm:py-36">
       <div className="container-page">
         <Reveal>
           <SectionHeader
-            eyebrow="The Workforce"
+            eyebrow="The AI Workforce"
             title="A complete AI team. Hired on day one."
-            description="Each AI Employee is purpose-built for one role — and trained on your business knowledge, tone and customers."
+            description="Each AI Employee owns one role end-to-end — with a real business problem to solve, and a measurable outcome to deliver."
           />
         </Reveal>
         <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.map((service, i) => {
-            const Icon = SERVICE_ICONS[service.slug];
+          {AI_EMPLOYEES.map((emp, i) => {
+            const Icon = SERVICE_ICONS[emp.slug];
             const featured = i === 0;
             return (
-              <Reveal key={service.slug} delay={i * 60}>
+              <Reveal key={emp.slug} delay={i * 60}>
                 <article
                   className={`surface-card surface-card-hover group relative flex h-full flex-col overflow-hidden p-7 ${
                     featured ? "sm:col-span-2 lg:col-span-2" : ""
                   }`}
                 >
                   <div
-                    className="pointer-events-none absolute -right-20 -top-20 size-56 rounded-full opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                    className="pointer-events-none absolute -right-24 -top-24 size-72 rounded-full opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                     aria-hidden
                     style={{
                       background:
-                        "radial-gradient(closest-side, color-mix(in oklab, var(--primary) 30%, transparent), transparent)",
+                        "radial-gradient(closest-side, color-mix(in oklab, var(--primary) 28%, transparent), transparent)",
                     }}
                   />
                   <div className="flex items-start justify-between gap-4">
@@ -303,33 +303,49 @@ function ServicesShowcase() {
                       {Icon && <Icon className="size-5" strokeWidth={1.8} />}
                     </span>
                     <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-mist">
-                      {service.role}
+                      {emp.role}
                     </span>
                   </div>
                   <h3 className="mt-7 font-display text-[22px] font-semibold tracking-tight text-foreground">
-                    {service.name}
+                    {emp.name}
                   </h3>
-                  <p className="mt-3 max-w-md text-[14.5px] leading-relaxed text-mist">
-                    {service.description}
-                  </p>
-                  {featured && (
-                    <ul className="mt-6 grid grid-cols-2 gap-2">
-                      {service.bullets.slice(0, 4).map((b) => (
-                        <li
-                          key={b}
-                          className="flex items-center gap-2 text-[13px] text-mist"
-                        >
-                          <Check className="size-3.5 text-primary" /> {b}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+
+                  <dl className="mt-6 space-y-4 text-[13.5px] leading-relaxed">
+                    <div className="flex gap-3">
+                      <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-destructive/10 text-destructive">
+                        <AlertCircle className="size-3.5" />
+                      </span>
+                      <div>
+                        <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-mist">Business problem</dt>
+                        <dd className="mt-1 text-foreground/85">{emp.problem}</dd>
+                      </div>
+                    </div>
+                    <div className="flex gap-3">
+                      <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">
+                        <Wand2 className="size-3.5" />
+                      </span>
+                      <div>
+                        <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-mist">AI solution</dt>
+                        <dd className="mt-1 text-foreground/85">{emp.solution}</dd>
+                      </div>
+                    </div>
+                    <div className="flex gap-3">
+                      <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-success/10 text-success">
+                        <TrendingUp className="size-3.5" />
+                      </span>
+                      <div>
+                        <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-mist">Business outcome</dt>
+                        <dd className="mt-1 text-foreground/85">{emp.outcome}</dd>
+                      </div>
+                    </div>
+                  </dl>
+
                   <div className="mt-auto pt-8">
                     <Link
                       to="/services"
                       className="inline-flex items-center gap-1 text-[13.5px] font-semibold text-primary transition-all duration-300 group-hover:gap-2"
                     >
-                      Explore <ArrowRight className="size-3.5" />
+                      Hire this AI Employee <ArrowRight className="size-3.5" />
                     </Link>
                   </div>
                 </article>
