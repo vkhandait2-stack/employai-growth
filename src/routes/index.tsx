@@ -220,26 +220,36 @@ function LogoMarquee() {
     "Legal",
     "Construction",
   ];
+  const loop = [...verticals, ...verticals];
   return (
-    <section className="border-y border-border bg-surface/60">
-      <div className="container-page py-10">
-        <p className="text-center font-mono text-[10.5px] uppercase tracking-[0.22em] text-mist">
+    <section className="relative border-y border-border bg-surface/60">
+      <div className="container-page py-14">
+        <p className="text-center font-mono text-[10.5px] uppercase tracking-[0.24em] text-mist">
           Trusted across regulated, high-stakes industries
         </p>
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-          {verticals.map((v) => (
-            <span
-              key={v}
-              className="font-display text-[15px] font-medium tracking-tight text-foreground/70 transition hover:text-foreground"
-            >
-              {v}
-            </span>
-          ))}
+        <div
+          className="relative mt-8 overflow-hidden"
+          style={{
+            maskImage:
+              "linear-gradient(90deg, transparent 0, black 12%, black 88%, transparent 100%)",
+          }}
+        >
+          <div className="flex w-max animate-marquee gap-14">
+            {loop.map((v, i) => (
+              <span
+                key={`${v}-${i}`}
+                className="font-display text-[17px] font-medium tracking-tight text-foreground/55 transition-colors duration-300 hover:text-foreground"
+              >
+                {v}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 /* ---------------- SERVICES ---------------- */
 
