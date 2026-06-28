@@ -91,7 +91,7 @@ function Hero() {
           maskImage: "radial-gradient(60% 60% at 50% 10%, black 30%, transparent 100%)",
         }}
       />
-      <div className="container-page relative grid items-center gap-20 pb-32 pt-24 sm:pt-32 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-40 lg:pt-40">
+      <div className="container-page relative grid items-center gap-16 pb-24 pt-20 sm:gap-20 sm:pb-32 sm:pt-32 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-40 lg:pt-40">
         <div>
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-3.5 py-1.5 font-mono text-[10.5px] uppercase tracking-[0.22em] text-mist backdrop-blur-xl">
@@ -103,32 +103,32 @@ function Hero() {
             </span>
           </Reveal>
           <Reveal delay={80}>
-            <h1 className="mt-8 display-1 text-foreground">
+            <h1 className="mt-7 display-1 text-foreground sm:mt-8">
               Hire AI Employees
               <br />
               <span className="text-gradient-aurora">that work 24/7.</span>
             </h1>
           </Reveal>
           <Reveal delay={180}>
-            <p className="mt-8 max-w-xl lede">
+            <p className="mt-6 max-w-xl lede sm:mt-8">
               AI Voice Receptionists, AI Sales Employees, AI WhatsApp Agents,
               AI Appointment Setters and Workflow Automation that help businesses
               respond faster, convert more leads and automate operations.
             </p>
           </Reveal>
           <Reveal delay={260}>
-            <div className="mt-12 flex flex-wrap items-center gap-3">
-              <Link to="/contact" className="btn-primary group">
+            <div className="mt-10 flex flex-col gap-3 sm:mt-12 sm:flex-row sm:flex-wrap sm:items-center">
+              <Link to="/contact" className="btn-primary group w-full sm:w-auto">
                 Book free demo
                 <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
-              <Link to="/contact" className="btn-glass group">
+              <Link to="/contact" className="btn-glass group w-full sm:w-auto">
                 <Mic className="size-4" />
                 Talk to AI
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-1.5 px-2 py-2 text-[13.5px] font-semibold text-foreground transition hover:text-primary"
+                className="hidden items-center gap-1.5 px-2 py-2 text-[13.5px] font-semibold text-foreground transition hover:text-primary sm:inline-flex"
               >
                 <PlayCircle className="size-4" />
                 Request proposal
@@ -136,28 +136,28 @@ function Hero() {
             </div>
           </Reveal>
           <Reveal delay={360}>
-            <dl className="mt-16 grid max-w-xl grid-cols-3 gap-8 border-t border-border pt-10">
+            <dl className="mt-14 grid max-w-xl grid-cols-3 gap-5 border-t border-border pt-8 sm:mt-16 sm:gap-8 sm:pt-10">
               <div>
-                <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-mist">
+                <dt className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-mist sm:text-[10px] sm:tracking-[0.2em]">
                   Conversations
                 </dt>
-                <dd className="mt-3 font-display text-[34px] font-semibold tracking-[-0.03em] text-foreground">
+                <dd className="mt-2 font-display text-[26px] font-semibold tracking-[-0.03em] text-foreground sm:mt-3 sm:text-[34px]">
                   <Counter value={2.4} decimals={1} suffix="M" />
                 </dd>
               </div>
               <div>
-                <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-mist">
+                <dt className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-mist sm:text-[10px] sm:tracking-[0.2em]">
                   Avg. response
                 </dt>
-                <dd className="mt-3 font-display text-[34px] font-semibold tracking-[-0.03em] text-foreground">
+                <dd className="mt-2 font-display text-[26px] font-semibold tracking-[-0.03em] text-foreground sm:mt-3 sm:text-[34px]">
                   <Counter value={0.4} decimals={1} suffix="s" />
                 </dd>
               </div>
               <div>
-                <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-mist">
+                <dt className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-mist sm:text-[10px] sm:tracking-[0.2em]">
                   Uptime
                 </dt>
-                <dd className="mt-3 font-display text-[34px] font-semibold tracking-[-0.03em] text-foreground">
+                <dd className="mt-2 font-display text-[26px] font-semibold tracking-[-0.03em] text-foreground sm:mt-3 sm:text-[34px]">
                   <Counter value={99.99} decimals={2} suffix="%" />
                 </dd>
               </div>
