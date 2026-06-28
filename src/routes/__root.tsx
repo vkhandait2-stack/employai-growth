@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "../components/site/SiteHeader";
 import { SiteFooter } from "../components/site/SiteFooter";
 import { MobileCTABar } from "../components/site/MobileCTABar";
+import ogImage from "../assets/indu-divine-og.jpg.asset.json";
 
 function NotFoundComponent() {
   return (
@@ -80,17 +81,27 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Indu Divine — AI Employees That Grow Your Business 24/7" },
+      { name: "theme-color", content: "#05101f" },
+      { title: "Indu Divine AI — AI Employees That Grow Your Business 24/7" },
       { name: "description", content: "Enterprise AI Employees for voice, sales, WhatsApp, appointments and workflow automation. Built for businesses that refuse to stop growing." },
-      { property: "og:title", content: "Indu Divine — AI Employees That Grow Your Business 24/7" },
+      { property: "og:title", content: "Indu Divine AI — AI Employees That Grow Your Business 24/7" },
       { property: "og:description", content: "Enterprise AI Employees for voice, sales, WhatsApp, appointments and workflow automation." },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Indu Divine AI" },
+      { property: "og:image", content: ogImage.url },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Indu Divine — AI Employees That Grow Your Business 24/7" },
+      { name: "twitter:title", content: "Indu Divine AI — AI Employees That Grow Your Business 24/7" },
       { name: "twitter:description", content: "Enterprise AI Employees for voice, sales, WhatsApp, appointments and workflow automation." },
+      { name: "twitter:image", content: ogImage.url },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "/favicon.ico", sizes: "any" },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32.png" },
+      { rel: "icon", type: "image/png", sizes: "192x192", href: "/favicon-192.png" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" },
