@@ -25,10 +25,12 @@ import {
 import { CTASection } from "../components/site/CTASection";
 import { SectionHeader } from "../components/site/SectionHeader";
 import { Reveal } from "../components/site/Reveal";
-import { AINetwork } from "../components/site/AINetwork";
 import { Counter } from "../components/site/Counter";
 import { InteractiveDemoSection } from "../components/site/InteractiveDemoSection";
 import { ROICalculator } from "../components/site/ROICalculator";
+import { DashboardPreview } from "../components/site/DashboardPreview";
+import { FAQSection } from "../components/site/FAQSection";
+import { TrustBar } from "../components/site/TrustBar";
 
 export const Route = createFileRoute("/")({
   head: () => ({
