@@ -102,16 +102,16 @@ function Hero() {
           </Reveal>
           <Reveal delay={80}>
             <h1 className="mt-8 display-1 text-foreground">
-              Stop hiring more staff.
+              Hire AI Employees
               <br />
-              <span className="text-gradient-aurora">Start hiring AI Employees.</span>
+              <span className="text-gradient-aurora">that work 24/7.</span>
             </h1>
           </Reveal>
           <Reveal delay={180}>
             <p className="mt-8 max-w-xl lede">
-              AI Employees that answer calls, qualify leads, automate WhatsApp,
-              schedule appointments and streamline business operations — engineered
-              for enterprises that measure success in outcomes.
+              AI Voice Receptionists, AI Sales Employees, AI WhatsApp Agents,
+              AI Appointment Setters and Workflow Automation that help businesses
+              respond faster, convert more leads and automate operations.
             </p>
           </Reveal>
           <Reveal delay={260}>
@@ -125,11 +125,11 @@ function Hero() {
                 Talk to AI
               </Link>
               <Link
-                to="/case-studies"
+                to="/contact"
                 className="inline-flex items-center gap-1.5 px-2 py-2 text-[13.5px] font-semibold text-foreground transition hover:text-primary"
               >
                 <PlayCircle className="size-4" />
-                Watch live demo
+                Request proposal
               </Link>
             </div>
           </Reveal>
@@ -164,31 +164,7 @@ function Hero() {
         </div>
 
         <Reveal delay={200} className="relative">
-          <div className="pointer-events-none absolute -inset-16 -z-10 mesh-glow animate-gradient-drift" aria-hidden />
-          <div className="relative mx-auto aspect-square w-full max-w-[580px]">
-            <div className="absolute inset-0 animate-float-slow">
-              <AINetwork className="h-full w-full" />
-            </div>
-            {/* Floating glass status cards */}
-            <FloatingCard
-              className="left-2 top-6 animate-float-medium"
-              dot="bg-success"
-              label="Voice Receptionist"
-              meta="Answering · 428 today"
-            />
-            <FloatingCard
-              className="right-0 top-1/2 -translate-y-1/2 [animation-delay:1.2s] animate-float-medium"
-              dot="bg-primary"
-              label="WhatsApp Agent"
-              meta="2,876 conversations"
-            />
-            <FloatingCard
-              className="bottom-6 left-1/2 -translate-x-1/2 [animation-delay:2s] animate-float-medium"
-              dot="bg-[color:var(--accent-cyan)]"
-              label="Appointment Setter"
-              meta="Booked 64 · Today"
-            />
-          </div>
+          <DashboardPreview className="mx-auto w-full max-w-[620px]" />
         </Reveal>
       </div>
     </section>
