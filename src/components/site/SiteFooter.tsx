@@ -81,6 +81,27 @@ export function SiteFooter() {
           </div>
         </div>
       </div>
+
+      {/* giant editorial wordmark */}
+      <div
+        aria-hidden
+        className="container-page relative -mt-2 select-none overflow-hidden pb-10"
+      >
+        <div
+          className="font-display font-semibold leading-[0.85] tracking-[-0.06em] text-transparent"
+          style={{
+            fontSize: "clamp(4rem, 18vw, 18rem)",
+            WebkitTextStroke: "1px color-mix(in oklab, var(--foreground) 14%, transparent)",
+            background:
+              "linear-gradient(180deg, color-mix(in oklab, var(--foreground) 6%, transparent), transparent 85%)",
+            WebkitBackgroundClip: "text",
+            backgroundClip: "text",
+          }}
+        >
+          INDU DIVINE AI
+        </div>
+      </div>
     </footer>
   );
 }
+
