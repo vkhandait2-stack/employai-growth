@@ -62,12 +62,14 @@ function HomePage() {
       <LogoMarquee />
       <AIEmployeesShowcase />
       <InteractiveDemoSection />
+      <TrustBar />
       <PlatformSection />
       <IndustriesShowcase />
       <ROICalculator />
       <ProcessSection />
       <ResultsSection />
       <CaseStudiesPreview />
+      <FAQSection />
       <CTASection />
     </>
   );
@@ -171,32 +173,6 @@ function Hero() {
   );
 }
 
-
-function FloatingCard({
-  className = "",
-  dot,
-  label,
-  meta,
-}: {
-  className?: string;
-  dot: string;
-  label: string;
-  meta: string;
-}) {
-  return (
-    <div
-      className={`absolute glass-panel flex items-center gap-3 px-4 py-3 shadow-[var(--shadow-float)] ${className}`}
-    >
-      <span className={`size-2 animate-pulse-dot rounded-full ${dot}`} />
-      <div>
-        <div className="text-[12.5px] font-semibold text-foreground">{label}</div>
-        <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-mist">
-          {meta}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 /* ---------------- LOGO MARQUEE / TRUST ---------------- */
 
