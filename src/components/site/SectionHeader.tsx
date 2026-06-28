@@ -11,11 +11,11 @@ export function SectionHeader({ eyebrow, title, description, align = "left" }: P
       {eyebrow && (
         <p className={align === "center" ? "eyebrow mx-auto" : "eyebrow"}>{eyebrow}</p>
       )}
-      <h2 className="mt-5 font-display text-3xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-5xl">
+      <h2 className="mt-6 display-2 text-foreground">
         {title}
       </h2>
       {description && (
-        <p className="mt-5 text-base leading-relaxed text-mist sm:text-lg">
+        <p className="mt-6 lede">
           {description}
         </p>
       )}

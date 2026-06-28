@@ -66,44 +66,47 @@ function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden grain">
       <div className="pointer-events-none absolute inset-0 -z-10 hero-glow" aria-hidden />
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[700px] opacity-50"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[820px] opacity-[0.55]"
         aria-hidden
         style={{
           backgroundImage:
-            "radial-gradient(circle at 1px 1px, oklch(0.22 0.04 260 / 0.06) 1px, transparent 0)",
-          backgroundSize: "32px 32px",
-          maskImage: "linear-gradient(to bottom, black 30%, transparent 100%)",
+            "radial-gradient(circle at 1px 1px, oklch(0.22 0.04 260 / 0.055) 1px, transparent 0)",
+          backgroundSize: "36px 36px",
+          maskImage: "radial-gradient(60% 60% at 50% 10%, black 30%, transparent 100%)",
         }}
       />
-      <div className="container-page relative grid items-center gap-16 pb-24 pt-20 sm:pt-28 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:pb-32 lg:pt-32">
+      <div className="container-page relative grid items-center gap-20 pb-32 pt-24 sm:pt-32 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-40 lg:pt-40">
         <div>
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-3 py-1.5 font-mono text-[10.5px] uppercase tracking-[0.2em] text-mist backdrop-blur">
-              <span className="size-1.5 animate-pulse-dot rounded-full bg-success" />
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-3.5 py-1.5 font-mono text-[10.5px] uppercase tracking-[0.22em] text-mist backdrop-blur-xl">
+              <span className="relative flex size-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-60" />
+                <span className="relative inline-flex size-1.5 rounded-full bg-success" />
+              </span>
               Enterprise AI Workforce — Live
             </span>
           </Reveal>
           <Reveal delay={80}>
-            <h1 className="mt-7 font-display text-[44px] font-semibold leading-[0.98] tracking-[-0.03em] text-foreground sm:text-[64px] lg:text-[78px]">
+            <h1 className="mt-8 display-1 text-foreground">
               AI Employees that
               <br />
-              <span className="text-gradient-primary">grow your business</span>
+              <span className="text-gradient-aurora">grow your business</span>
               <br />
               24/7.
             </h1>
           </Reveal>
           <Reveal delay={180}>
-            <p className="mt-7 max-w-xl text-lg leading-relaxed text-mist sm:text-xl">
+            <p className="mt-8 max-w-xl lede">
               Replace missed calls, slow follow-ups and manual operations with an
               always-on AI workforce. Designed for enterprises that measure success in
               outcomes — not features.
             </p>
           </Reveal>
           <Reveal delay={260}>
-            <div className="mt-10 flex flex-wrap items-center gap-3">
+            <div className="mt-12 flex flex-wrap items-center gap-3">
               <Link to="/contact" className="btn-primary group">
                 Book a demo
                 <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -114,28 +117,28 @@ function Hero() {
             </div>
           </Reveal>
           <Reveal delay={360}>
-            <dl className="mt-14 grid max-w-xl grid-cols-3 gap-8 border-t border-border pt-8">
+            <dl className="mt-16 grid max-w-xl grid-cols-3 gap-8 border-t border-border pt-10">
               <div>
-                <dt className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-mist">
+                <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-mist">
                   Conversations
                 </dt>
-                <dd className="mt-2 font-display text-3xl font-semibold tracking-tight text-foreground">
+                <dd className="mt-3 font-display text-[34px] font-semibold tracking-[-0.03em] text-foreground">
                   <Counter value={2.4} decimals={1} suffix="M" />
                 </dd>
               </div>
               <div>
-                <dt className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-mist">
+                <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-mist">
                   Avg. response
                 </dt>
-                <dd className="mt-2 font-display text-3xl font-semibold tracking-tight text-foreground">
+                <dd className="mt-3 font-display text-[34px] font-semibold tracking-[-0.03em] text-foreground">
                   <Counter value={0.4} decimals={1} suffix="s" />
                 </dd>
               </div>
               <div>
-                <dt className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-mist">
+                <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-mist">
                   Uptime
                 </dt>
-                <dd className="mt-2 font-display text-3xl font-semibold tracking-tight text-foreground">
+                <dd className="mt-3 font-display text-[34px] font-semibold tracking-[-0.03em] text-foreground">
                   <Counter value={99.99} decimals={2} suffix="%" />
                 </dd>
               </div>
@@ -144,8 +147,8 @@ function Hero() {
         </div>
 
         <Reveal delay={200} className="relative">
-          <div className="pointer-events-none absolute -inset-12 -z-10 mesh-glow animate-gradient-drift" aria-hidden />
-          <div className="relative mx-auto aspect-square w-full max-w-[560px]">
+          <div className="pointer-events-none absolute -inset-16 -z-10 mesh-glow animate-gradient-drift" aria-hidden />
+          <div className="relative mx-auto aspect-square w-full max-w-[580px]">
             <div className="absolute inset-0 animate-float-slow">
               <AINetwork className="h-full w-full" />
             </div>
@@ -174,6 +177,7 @@ function Hero() {
     </section>
   );
 }
+
 
 function FloatingCard({
   className = "",
@@ -216,26 +220,36 @@ function LogoMarquee() {
     "Legal",
     "Construction",
   ];
+  const loop = [...verticals, ...verticals];
   return (
-    <section className="border-y border-border bg-surface/60">
-      <div className="container-page py-10">
-        <p className="text-center font-mono text-[10.5px] uppercase tracking-[0.22em] text-mist">
+    <section className="relative border-y border-border bg-surface/60">
+      <div className="container-page py-14">
+        <p className="text-center font-mono text-[10.5px] uppercase tracking-[0.24em] text-mist">
           Trusted across regulated, high-stakes industries
         </p>
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-          {verticals.map((v) => (
-            <span
-              key={v}
-              className="font-display text-[15px] font-medium tracking-tight text-foreground/70 transition hover:text-foreground"
-            >
-              {v}
-            </span>
-          ))}
+        <div
+          className="relative mt-8 overflow-hidden"
+          style={{
+            maskImage:
+              "linear-gradient(90deg, transparent 0, black 12%, black 88%, transparent 100%)",
+          }}
+        >
+          <div className="flex w-max animate-marquee gap-14">
+            {loop.map((v, i) => (
+              <span
+                key={`${v}-${i}`}
+                className="font-display text-[17px] font-medium tracking-tight text-foreground/55 transition-colors duration-300 hover:text-foreground"
+              >
+                {v}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 /* ---------------- SERVICES ---------------- */
 
