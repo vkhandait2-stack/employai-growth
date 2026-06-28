@@ -15,9 +15,15 @@ const NAV = [
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 8);
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - doc.clientHeight;
+      setProgress(max > 0 ? Math.min(1, window.scrollY / max) : 0);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
