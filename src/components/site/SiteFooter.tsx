@@ -24,7 +24,7 @@ const LINKS = {
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border bg-background">
+    <footer className="border-t border-border bg-background pb-24 lg:pb-0">
       <div className="container-page py-20">
         <div className="grid gap-14 lg:grid-cols-[1.4fr_3fr]">
           <div>
