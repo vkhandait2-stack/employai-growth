@@ -95,33 +95,39 @@ function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-60" />
                 <span className="relative inline-flex size-1.5 rounded-full bg-success" />
               </span>
-              Enterprise AI Workforce — Live
+              Your AI Workforce Partner — Live
             </span>
           </Reveal>
           <Reveal delay={80}>
             <h1 className="mt-8 display-1 text-foreground">
-              AI Employees that
+              Stop hiring more staff.
               <br />
-              <span className="text-gradient-aurora">grow your business</span>
-              <br />
-              24/7.
+              <span className="text-gradient-aurora">Start hiring AI Employees.</span>
             </h1>
           </Reveal>
           <Reveal delay={180}>
             <p className="mt-8 max-w-xl lede">
-              Replace missed calls, slow follow-ups and manual operations with an
-              always-on AI workforce. Designed for enterprises that measure success in
-              outcomes — not features.
+              AI Employees that answer calls, qualify leads, automate WhatsApp,
+              schedule appointments and streamline business operations — engineered
+              for enterprises that measure success in outcomes.
             </p>
           </Reveal>
           <Reveal delay={260}>
             <div className="mt-12 flex flex-wrap items-center gap-3">
               <Link to="/contact" className="btn-primary group">
-                Book a demo
+                Book free demo
                 <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
-              <Link to="/services" className="btn-glass">
-                Explore the platform
+              <Link to="/contact" className="btn-glass group">
+                <Mic className="size-4" />
+                Talk to AI
+              </Link>
+              <Link
+                to="/case-studies"
+                className="inline-flex items-center gap-1.5 px-2 py-2 text-[13.5px] font-semibold text-foreground transition hover:text-primary"
+              >
+                <PlayCircle className="size-4" />
+                Watch live demo
               </Link>
             </div>
           </Reveal>
