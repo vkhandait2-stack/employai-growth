@@ -7,21 +7,17 @@ interface Props {
 
 export function SectionHeader({ eyebrow, title, description, align = "left" }: Props) {
   return (
-    <div
-      className={
-        align === "center"
-          ? "mx-auto max-w-2xl text-center"
-          : "max-w-2xl"
-      }
-    >
+    <div className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
       {eyebrow && (
         <p className={align === "center" ? "eyebrow mx-auto" : "eyebrow"}>{eyebrow}</p>
       )}
-      <h2 className="mt-5 font-display text-3xl font-bold leading-tight tracking-tight text-gradient sm:text-4xl md:text-5xl">
+      <h2 className="mt-5 font-display text-3xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-5xl">
         {title}
       </h2>
       {description && (
-        <p className="mt-4 text-base leading-relaxed text-mist sm:text-lg">{description}</p>
+        <p className="mt-5 text-base leading-relaxed text-mist sm:text-lg">
+          {description}
+        </p>
       )}
     </div>
   );
