@@ -28,8 +28,8 @@ export function SiteFooter() {
       <div className="container-page py-20">
         <div className="grid gap-14 lg:grid-cols-[1.4fr_3fr]">
           <div>
-            <Link to="/" className="flex items-center gap-2.5" aria-label="Indu Divine AI home">
-              <Logo />
+            <Link to="/" className="flex items-center gap-3" aria-label="Indu Divine AI home">
+              <Logo className="size-10" />
               <span className="font-display text-base font-semibold tracking-tight">
                 Indu Divine <span className="text-mist">AI</span>
               </span>
