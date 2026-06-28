@@ -29,18 +29,18 @@ export function PageHero({
             {description}
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
-            <Link
-              to={primaryCta.to}
+            <a
+              href={primaryCta.to}
               className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-7 text-sm font-semibold text-primary-foreground shadow-glow transition hover:opacity-90"
             >
               {primaryCta.label}
-            </Link>
-            <Link
-              to={secondaryCta.to}
+            </a>
+            <a
+              href={secondaryCta.to}
               className="inline-flex h-12 items-center justify-center rounded-full border border-border-strong bg-surface px-7 text-sm font-semibold text-foreground transition hover:bg-surface-elevated"
             >
               {secondaryCta.label}
-            </Link>
+            </a>
           </div>
         </div>
       </div>
