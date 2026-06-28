@@ -228,6 +228,7 @@ function AIEmployeesShowcase() {
       <div className="container-page">
         <Reveal>
           <SectionHeader
+            number="01"
             eyebrow="The AI Workforce"
             title="A complete AI team. Hired on day one."
             description="Each AI Employee owns one role end-to-end — with a real business problem to solve, and a measurable outcome to deliver."
@@ -356,6 +357,7 @@ function PlatformSection() {
       <div className="container-page">
         <Reveal>
           <SectionHeader
+            number="02"
             eyebrow="The Platform"
             title="Built like infrastructure. Used like a teammate."
             description="The same engineering rigor you expect from Stripe, Linear or Vercel — applied to AI that talks to your customers."
@@ -389,6 +391,7 @@ function IndustriesShowcase() {
       <div className="container-page">
         <Reveal>
           <SectionHeader
+            number="03"
             eyebrow="Industries"
             title="Pre-trained for the businesses we serve."
             description="Vertical-tuned AI Employees that speak your industry's language, follow its rules, and meet its outcomes."
@@ -504,6 +507,7 @@ function ResultsSection() {
       <div className="container-page">
         <Reveal>
           <SectionHeader
+            number="05"
             eyebrow="Outcomes"
             title="Real numbers. Measured the way your CFO would."
             description="We optimise for revenue, response time and customer experience — not vanity metrics."
@@ -552,6 +556,7 @@ function CaseStudiesPreview() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <Reveal>
             <SectionHeader
+              number="06"
               eyebrow="Customers"
               title="Real businesses. Real automation."
             />
