@@ -17,6 +17,7 @@ export function TrustBar() {
       <div className="container-page">
         <Reveal>
           <SectionHeader
+            number="04"
             eyebrow="Why teams choose us"
             title="The trust layer behind every conversation."
             description="Six commitments that make Indu Divine AI safe to deploy in customer-facing roles."
