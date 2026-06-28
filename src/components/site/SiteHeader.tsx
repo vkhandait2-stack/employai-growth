@@ -32,15 +32,19 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-500 ${
+      className={`sticky top-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
         scrolled
-          ? "border-b border-border bg-background/70 backdrop-blur-2xl backdrop-saturate-150"
+          ? "border-b border-border bg-background/75 backdrop-blur-2xl backdrop-saturate-150"
           : "border-b border-transparent bg-background/30 backdrop-blur-md"
       }`}
     >
-      <div className="container-page flex h-16 items-center justify-between gap-6 sm:h-[72px]">
+      <div
+        className={`container-page flex items-center justify-between gap-6 transition-[height] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          scrolled ? "h-14 sm:h-16" : "h-16 sm:h-[76px]"
+        }`}
+      >
         <Link to="/" className="flex items-center gap-2.5" aria-label="Indu Divine AI home">
-          <Logo className="size-8" />
+          <Logo className={`${scrolled ? "size-7" : "size-8"} transition-all duration-500`} />
           <span className="font-display text-[15px] font-semibold tracking-[-0.01em] text-foreground">
             Indu Divine <span className="text-mist">AI</span>
           </span>
