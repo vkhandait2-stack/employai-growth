@@ -1,17 +1,15 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { Logo } from "./Logo";
 
 const NAV = [
   { to: "/services", label: "Services" },
   { to: "/industries", label: "Industries" },
   { to: "/solutions", label: "Solutions" },
-  { to: "/case-studies", label: "Case Studies" },
+  { to: "/case-studies", label: "Customers" },
   { to: "/pricing", label: "Pricing" },
-  { to: "/about", label: "About" },
-  { to: "/blog", label: "Blog" },
-  { to: "/contact", label: "Contact" },
+  { to: "/about", label: "Company" },
 ] as const;
 
 export function SiteHeader() {
@@ -34,16 +32,16 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-colors ${
+      className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-border bg-background/80 backdrop-blur-xl"
+          ? "border-b border-border bg-background/75 backdrop-blur-xl"
           : "border-b border-transparent bg-background/40 backdrop-blur-md"
       }`}
     >
-      <div className="container-page flex h-16 items-center justify-between gap-6">
+      <div className="container-page flex h-16 items-center justify-between gap-6 sm:h-20">
         <Link to="/" className="flex items-center gap-2.5" aria-label="Indu Divine home">
-          <Logo />
-          <span className="font-display text-sm font-bold tracking-tight text-foreground sm:text-base">
+          <Logo className="size-8" />
+          <span className="font-display text-[15px] font-semibold tracking-tight text-foreground">
             Indu Divine
           </span>
         </Link>
@@ -53,27 +51,34 @@ export function SiteHeader() {
             <Link
               key={item.to}
               to={item.to}
-              className="rounded-full px-3 py-2 text-sm text-mist transition hover:bg-surface hover:text-foreground"
-              activeProps={{ className: "text-foreground bg-surface" }}
+              className="rounded-full px-4 py-2 text-[13.5px] font-medium text-mist transition-colors duration-300 hover:text-foreground"
+              activeProps={{ className: "text-foreground" }}
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2 lg:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <Link
             to="/contact"
-            className="inline-flex h-9 items-center justify-center rounded-full bg-primary px-4 text-sm font-semibold text-primary-foreground shadow-glow transition hover:opacity-90"
+            className="text-[13.5px] font-medium text-mist transition hover:text-foreground"
           >
-            Book Demo
+            Sign in
+          </Link>
+          <Link
+            to="/contact"
+            className="group inline-flex h-10 items-center justify-center gap-1.5 rounded-full bg-foreground px-5 text-[13.5px] font-semibold text-background transition-all duration-300 hover:bg-primary hover:shadow-[0_8px_24px_-8px_color-mix(in_oklab,var(--primary)_60%,transparent)]"
+          >
+            Book a demo
+            <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
 
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="grid size-10 place-items-center rounded-full border border-border bg-surface text-foreground lg:hidden"
+          className="grid size-10 place-items-center rounded-full border border-border bg-white text-foreground lg:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
         >
@@ -90,7 +95,7 @@ export function SiteHeader() {
                   key={item.to}
                   to={item.to}
                   onClick={() => setOpen(false)}
-                  className="rounded-xl px-4 py-3 text-base font-medium text-mist transition hover:bg-surface hover:text-foreground"
+                  className="rounded-2xl px-4 py-3 text-base font-medium text-mist transition hover:bg-surface hover:text-foreground"
                   activeProps={{ className: "text-foreground bg-surface" }}
                 >
                   {item.label}
@@ -100,9 +105,9 @@ export function SiteHeader() {
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
-              className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground shadow-glow"
+              className="btn-primary mt-6 w-full"
             >
-              Book Free Demo
+              Book a demo
             </Link>
           </div>
         </div>
