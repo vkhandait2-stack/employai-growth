@@ -11,9 +11,6 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { SiteHeader } from "../components/site/SiteHeader";
-import { SiteFooter } from "../components/site/SiteFooter";
-import { MobileCTABar } from "../components/site/MobileCTABar";
 
 function NotFoundComponent() {
   return (
@@ -80,20 +77,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Indu Divine — AI Employees That Grow Your Business 24/7" },
-      { name: "description", content: "Enterprise AI Employees for voice, sales, WhatsApp, appointments and workflow automation. Built for businesses that refuse to stop growing." },
-      { property: "og:title", content: "Indu Divine — AI Employees That Grow Your Business 24/7" },
-      { property: "og:description", content: "Enterprise AI Employees for voice, sales, WhatsApp, appointments and workflow automation." },
+      { title: "Indu Divine AI | AI Voice Agents, WhatsApp AI ." },
+      { name: "description", content: "Hire AI Employees that answer calls, automate WhatsApp, book appointments and streamline business operations. Trusted AI automation solutions for growing busine" },
+      { name: "author", content: "Lovable" },
+      { property: "og:title", content: "Indu Divine AI | AI Voice Agents, WhatsApp AI ." },
+      { property: "og:description", content: "Hire AI Employees that answer calls, automate WhatsApp, book appointments and streamline business operations. Trusted AI automation solutions for growing busine" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Indu Divine — AI Employees That Grow Your Business 24/7" },
-      { name: "twitter:description", content: "Enterprise AI Employees for voice, sales, WhatsApp, appointments and workflow automation." },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Indu Divine AI | AI Voice Agents, WhatsApp AI ." },
+      { name: "twitter:description", content: "Hire AI Employees that answer calls, automate WhatsApp, book appointments and streamline business operations. Trusted AI automation solutions for growing busine" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/092f571f-10f3-4aae-84a1-9f9f91878f90/id-preview-85e1b658--1a0b2d3d-a686-4d95-be4b-326b22043232.lovable.app-1782657015460.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/092f571f-10f3-4aae-84a1-9f9f91878f90/id-preview-85e1b658--1a0b2d3d-a686-4d95-be4b-326b22043232.lovable.app-1782657015460.png" },
     ],
     links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" },
+      {
+        rel: "stylesheet",
+        href: appCss,
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -121,14 +122,8 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col bg-background">
-        <SiteHeader />
-        <main className="flex-1">
-          <Outlet />
-        </main>
-        <SiteFooter />
-        <MobileCTABar />
-      </div>
+      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      <Outlet />
     </QueryClientProvider>
   );
 }
