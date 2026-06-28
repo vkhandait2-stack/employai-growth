@@ -10,9 +10,14 @@ import {
   Lock,
   Globe2,
   Clock4,
+  Mic,
+  PlayCircle,
+  AlertCircle,
+  Wand2,
+  TrendingUp,
 } from "lucide-react";
 import {
-  SERVICES,
+  AI_EMPLOYEES,
   SERVICE_ICONS,
   INDUSTRIES,
   CASE_STUDIES,
@@ -22,17 +27,19 @@ import { SectionHeader } from "../components/site/SectionHeader";
 import { Reveal } from "../components/site/Reveal";
 import { AINetwork } from "../components/site/AINetwork";
 import { Counter } from "../components/site/Counter";
+import { InteractiveDemoSection } from "../components/site/InteractiveDemoSection";
+import { ROICalculator } from "../components/site/ROICalculator";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Indu Divine — AI Employees That Grow Your Business 24/7" },
+      { title: "Indu Divine AI — Your AI Workforce Partner" },
       {
         name: "description",
         content:
-          "Hire AI Employees that answer calls, qualify leads, automate WhatsApp and run operations around the clock. Enterprise AI for healthcare, real estate, finance and more.",
+          "Stop hiring more staff. Start hiring AI Employees that answer calls, qualify leads, automate WhatsApp, schedule appointments and streamline operations 24/7.",
       },
-      { property: "og:title", content: "Indu Divine — AI Employees That Grow Your Business 24/7" },
+      { property: "og:title", content: "Indu Divine AI — Your AI Workforce Partner" },
       {
         property: "og:description",
         content:
@@ -51,9 +58,11 @@ function HomePage() {
     <>
       <Hero />
       <LogoMarquee />
-      <ServicesShowcase />
+      <AIEmployeesShowcase />
+      <InteractiveDemoSection />
       <PlatformSection />
       <IndustriesShowcase />
+      <ROICalculator />
       <ProcessSection />
       <ResultsSection />
       <CaseStudiesPreview />
