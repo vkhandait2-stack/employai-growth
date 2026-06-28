@@ -10,68 +10,52 @@ const LINKS = {
   ],
   Company: [
     { to: "/about", label: "About" },
-    { to: "/case-studies", label: "Case Studies" },
-    { to: "/blog", label: "Blog" },
+    { to: "/case-studies", label: "Customers" },
+    { to: "/blog", label: "Insights" },
     { to: "/contact", label: "Contact" },
   ],
   Legal: [
-    { to: "/privacy", label: "Privacy Policy" },
-    { to: "/terms", label: "Terms of Service" },
-    { to: "/cookies", label: "Cookie Policy" },
-    { to: "/refund", label: "Refund Policy" },
+    { to: "/privacy", label: "Privacy" },
+    { to: "/terms", label: "Terms" },
+    { to: "/cookies", label: "Cookies" },
+    { to: "/refund", label: "Refund" },
   ],
 } as const;
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-background">
-      <div className="container-page py-16">
-        <div className="grid gap-12 lg:grid-cols-[1.5fr_3fr]">
+      <div className="container-page py-20">
+        <div className="grid gap-14 lg:grid-cols-[1.4fr_3fr]">
           <div>
             <Link to="/" className="flex items-center gap-2.5" aria-label="Indu Divine home">
               <Logo />
-              <span className="font-display text-base font-bold tracking-tight">
+              <span className="font-display text-base font-semibold tracking-tight">
                 Indu Divine
               </span>
             </Link>
-            <p className="mt-5 max-w-sm text-sm leading-relaxed text-mist">
-              We don't sell software. We build AI Employees that help businesses grow —
-              answering calls, qualifying leads, and automating workflows around the clock.
+            <p className="mt-6 max-w-sm text-[14.5px] leading-relaxed text-mist">
+              AI Employees that grow your business 24/7. Built for enterprises that
+              measure success in outcomes, not features.
             </p>
-            <div className="mt-6 space-y-1 text-sm">
-              <div className="text-mist">
-                Sales —{" "}
-                <a
-                  href="mailto:sales@indudivineai"
-                  className="text-foreground hover:text-primary-glow"
-                >
-                  sales@indudivineai
-                </a>
-              </div>
-              <div className="text-mist">
-                Info —{" "}
-                <a
-                  href="mailto:info@indudivineai"
-                  className="text-foreground hover:text-primary-glow"
-                >
-                  info@indudivineai
-                </a>
-              </div>
+            <div className="mt-8 flex items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.18em] text-mist">
+              <span className="size-1.5 animate-pulse-dot rounded-full bg-success" />
+              All systems operational
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
             {Object.entries(LINKS).map(([heading, items]) => (
               <div key={heading}>
-                <h5 className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground">
+                <h5 className="font-display text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground">
                   {heading}
                 </h5>
-                <ul className="mt-4 space-y-2.5">
+                <ul className="mt-5 space-y-3">
                   {items.map((item) => (
                     <li key={item.to}>
                       <Link
                         to={item.to}
-                        className="text-sm text-mist transition hover:text-foreground"
+                        className="text-[14px] text-mist transition-colors duration-200 hover:text-foreground"
                       >
                         {item.label}
                       </Link>
@@ -83,13 +67,14 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 sm:flex-row sm:items-center">
-          <p className="text-xs text-mist">
-            © {new Date().getFullYear()} Indu Divine AI Automation. All Rights Reserved.
+        <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 sm:flex-row sm:items-center">
+          <p className="text-[12.5px] text-mist">
+            © {new Date().getFullYear()} Indu Divine AI Automation. All rights reserved.
           </p>
-          <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-mist">
-            <span className="size-1.5 animate-pulse-dot rounded-full bg-success" />
-            All AI Employees Operational
+          <div className="flex items-center gap-5 text-[12.5px] text-mist">
+            <a href="mailto:sales@indudivineai" className="hover:text-foreground">sales@indudivineai</a>
+            <span aria-hidden>·</span>
+            <a href="mailto:info@indudivineai" className="hover:text-foreground">info@indudivineai</a>
           </div>
         </div>
       </div>

@@ -1,4 +1,6 @@
 import type { ReactNode } from "react";
+import { Link } from "@tanstack/react-router";
+import { ArrowUpRight } from "lucide-react";
 
 interface Props {
   eyebrow: string;
@@ -12,34 +14,39 @@ export function PageHero({
   eyebrow,
   title,
   description,
-  primaryCta = { to: "/contact", label: "Book Free Demo" },
-  secondaryCta = { to: "/contact", label: "Talk To Our AI" },
+  primaryCta = { to: "/contact", label: "Book a demo" },
+  secondaryCta = { to: "/contact", label: "Talk to sales" },
 }: Props) {
   return (
-    <section className="relative overflow-hidden border-b border-border">
-      <div className="pointer-events-none absolute inset-0 hero-glow" aria-hidden />
-      <div className="container-page relative pb-20 pt-20 sm:pb-28 sm:pt-28">
-        <div className="mx-auto max-w-3xl text-center">
+    <section className="relative overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 -z-10 hero-glow" aria-hidden />
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[420px] opacity-50"
+        aria-hidden
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 1px 1px, oklch(0.22 0.04 260 / 0.06) 1px, transparent 0)",
+          backgroundSize: "32px 32px",
+          maskImage: "linear-gradient(to bottom, black 30%, transparent 100%)",
+        }}
+      />
+      <div className="container-page relative pb-24 pt-24 sm:pb-32 sm:pt-32">
+        <div className="mx-auto max-w-4xl text-center">
           <p className="eyebrow mx-auto">{eyebrow}</p>
-          <h1 className="mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight text-gradient sm:text-5xl md:text-6xl">
+          <h1 className="mt-7 font-display text-[40px] font-semibold leading-[1.02] tracking-tight text-foreground sm:text-6xl md:text-7xl">
             {title}
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-mist sm:text-lg">
+          <p className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-mist sm:text-xl">
             {description}
           </p>
-          <div className="mt-9 flex flex-wrap justify-center gap-3">
-            <a
-              href={primaryCta.to}
-              className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-7 text-sm font-semibold text-primary-foreground shadow-glow transition hover:opacity-90"
-            >
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
+            <Link to={primaryCta.to} className="btn-primary group">
               {primaryCta.label}
-            </a>
-            <a
-              href={secondaryCta.to}
-              className="inline-flex h-12 items-center justify-center rounded-full border border-border-strong bg-surface px-7 text-sm font-semibold text-foreground transition hover:bg-surface-elevated"
-            >
+              <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
+            <Link to={secondaryCta.to} className="btn-glass">
               {secondaryCta.label}
-            </a>
+            </Link>
           </div>
         </div>
       </div>
