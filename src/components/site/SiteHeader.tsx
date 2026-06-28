@@ -15,9 +15,15 @@ const NAV = [
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 8);
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - doc.clientHeight;
+      setProgress(max > 0 ? Math.min(1, window.scrollY / max) : 0);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -89,6 +95,23 @@ export function SiteHeader() {
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
       </div>
+
+      {/* scroll progress hairline */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-px overflow-hidden"
+      >
+        <div
+          className="h-full origin-left transition-transform duration-150 ease-out"
+          style={{
+            transform: `scaleX(${progress})`,
+            background:
+              "linear-gradient(90deg, var(--primary), var(--accent-cyan))",
+          }}
+        />
+      </div>
+
+
 
 
       {open && (
