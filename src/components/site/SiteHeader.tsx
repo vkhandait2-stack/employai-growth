@@ -39,10 +39,10 @@ export function SiteHeader() {
       }`}
     >
       <div className="container-page flex h-16 items-center justify-between gap-6 sm:h-[72px]">
-        <Link to="/" className="flex items-center gap-2.5" aria-label="Indu Divine home">
+        <Link to="/" className="flex items-center gap-2.5" aria-label="Indu Divine AI home">
           <Logo className="size-8" />
           <span className="font-display text-[15px] font-semibold tracking-[-0.01em] text-foreground">
-            Indu Divine
+            Indu Divine <span className="text-mist">AI</span>
           </span>
         </Link>
 
