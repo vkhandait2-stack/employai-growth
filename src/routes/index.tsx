@@ -1,38 +1,42 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
+  ArrowUpRight,
   ArrowRight,
   Check,
-  Clock,
   Shield,
   Zap,
   Sparkles,
-  PhoneCall,
+  Activity,
+  Lock,
+  Globe2,
+  Clock4,
 } from "lucide-react";
 import {
   SERVICES,
   SERVICE_ICONS,
   INDUSTRIES,
-  PROCESS_STEPS,
   CASE_STUDIES,
-  TRUST_PILLARS,
 } from "../lib/site-data";
 import { CTASection } from "../components/site/CTASection";
 import { SectionHeader } from "../components/site/SectionHeader";
+import { Reveal } from "../components/site/Reveal";
+import { AINetwork } from "../components/site/AINetwork";
+import { Counter } from "../components/site/Counter";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Indu Divine AI Automation — Hire AI Employees That Work 24/7" },
+      { title: "Indu Divine — AI Employees That Grow Your Business 24/7" },
       {
         name: "description",
         content:
-          "Hire AI Employees that answer calls, qualify leads, automate WhatsApp, schedule appointments and streamline workflows. Enterprise AI for healthcare, real estate, finance, education and more.",
+          "Hire AI Employees that answer calls, qualify leads, automate WhatsApp and run operations around the clock. Enterprise AI for healthcare, real estate, finance and more.",
       },
-      { property: "og:title", content: "Indu Divine — AI Employees That Work 24/7" },
+      { property: "og:title", content: "Indu Divine — AI Employees That Grow Your Business 24/7" },
       {
         property: "og:description",
         content:
-          "Enterprise AI Employees for voice, sales, WhatsApp, appointments, outbound calling, and workflow automation.",
+          "Enterprise AI Employees for voice, sales, WhatsApp, appointments and workflow automation.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -42,23 +46,15 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const HERO_STATS = [
-  { label: "Availability", value: "24/7/365" },
-  { label: "Response Time", value: "Instant" },
-  { label: "Security", value: "Enterprise" },
-  { label: "Conversation", value: "Human-Like" },
-];
-
 function HomePage() {
   return (
     <>
       <Hero />
-      <ProblemSection />
-      <SolutionSection />
-      <ServicesSection />
-      <IndustriesSection />
+      <LogoMarquee />
+      <ServicesShowcase />
+      <PlatformSection />
+      <IndustriesShowcase />
       <ProcessSection />
-      <WhyChooseSection />
       <ResultsSection />
       <CaseStudiesPreview />
       <CTASection />
@@ -66,223 +62,249 @@ function HomePage() {
   );
 }
 
+/* ---------------- HERO ---------------- */
+
 function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 hero-glow" aria-hidden />
+      <div className="pointer-events-none absolute inset-0 -z-10 hero-glow" aria-hidden />
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 -z-0 h-[600px] opacity-60"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[700px] opacity-50"
         aria-hidden
         style={{
           backgroundImage:
-            "radial-gradient(circle at 1px 1px, oklch(1 0 0 / 0.05) 1px, transparent 0)",
+            "radial-gradient(circle at 1px 1px, oklch(0.22 0.04 260 / 0.06) 1px, transparent 0)",
           backgroundSize: "32px 32px",
           maskImage: "linear-gradient(to bottom, black 30%, transparent 100%)",
         }}
       />
-      <div className="container-page relative pb-20 pt-16 sm:pb-28 sm:pt-24">
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="eyebrow mx-auto">
-            <Sparkles className="size-3" /> Enterprise AI Workforce
-          </p>
-          <h1 className="mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight text-gradient sm:text-6xl md:text-[64px]">
-            Hire AI Employees That Work{" "}
-            <span className="text-gradient-primary">24/7</span> So Your Business Never
-            Stops.
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-mist sm:text-lg">
-            Empower your business with AI Employees that answer calls, qualify leads,
-            automate WhatsApp conversations, schedule appointments and streamline
-            workflows — so your team can focus on closing more business.
-          </p>
-
-          <div className="mt-9 flex flex-wrap justify-center gap-3">
-            <Link
-              to="/contact"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-7 text-sm font-semibold text-primary-foreground shadow-glow transition hover:opacity-90"
-            >
-              Book Free Demo <ArrowRight className="size-4" />
-            </Link>
-            <Link
-              to="/contact"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-border-strong bg-surface px-7 text-sm font-semibold text-foreground transition hover:bg-surface-elevated"
-            >
-              <PhoneCall className="size-4" /> Talk To Our AI
-            </Link>
-            <Link
-              to="/contact"
-              className="inline-flex h-12 items-center justify-center rounded-full px-5 text-sm font-semibold text-mist transition hover:text-foreground"
-            >
-              Request Proposal →
-            </Link>
-          </div>
-        </div>
-
-        <div className="mx-auto mt-16 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-4">
-          {HERO_STATS.map((stat) => (
-            <div key={stat.label} className="bg-surface/90 p-5 text-center">
-              <div className="font-display text-xl font-bold text-foreground sm:text-2xl">
-                {stat.value}
-              </div>
-              <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-mist">
-                {stat.label}
-              </div>
+      <div className="container-page relative grid items-center gap-16 pb-24 pt-20 sm:pt-28 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:pb-32 lg:pt-32">
+        <div>
+          <Reveal>
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-3 py-1.5 font-mono text-[10.5px] uppercase tracking-[0.2em] text-mist backdrop-blur">
+              <span className="size-1.5 animate-pulse-dot rounded-full bg-success" />
+              Enterprise AI Workforce — Live
+            </span>
+          </Reveal>
+          <Reveal delay={80}>
+            <h1 className="mt-7 font-display text-[44px] font-semibold leading-[0.98] tracking-[-0.03em] text-foreground sm:text-[64px] lg:text-[78px]">
+              AI Employees that
+              <br />
+              <span className="text-gradient-primary">grow your business</span>
+              <br />
+              24/7.
+            </h1>
+          </Reveal>
+          <Reveal delay={180}>
+            <p className="mt-7 max-w-xl text-lg leading-relaxed text-mist sm:text-xl">
+              Replace missed calls, slow follow-ups and manual operations with an
+              always-on AI workforce. Designed for enterprises that measure success in
+              outcomes — not features.
+            </p>
+          </Reveal>
+          <Reveal delay={260}>
+            <div className="mt-10 flex flex-wrap items-center gap-3">
+              <Link to="/contact" className="btn-primary group">
+                Book a demo
+                <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
+              <Link to="/services" className="btn-glass">
+                Explore the platform
+              </Link>
             </div>
-          ))}
+          </Reveal>
+          <Reveal delay={360}>
+            <dl className="mt-14 grid max-w-xl grid-cols-3 gap-8 border-t border-border pt-8">
+              <div>
+                <dt className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-mist">
+                  Conversations
+                </dt>
+                <dd className="mt-2 font-display text-3xl font-semibold tracking-tight text-foreground">
+                  <Counter value={2.4} decimals={1} suffix="M" />
+                </dd>
+              </div>
+              <div>
+                <dt className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-mist">
+                  Avg. response
+                </dt>
+                <dd className="mt-2 font-display text-3xl font-semibold tracking-tight text-foreground">
+                  <Counter value={0.4} decimals={1} suffix="s" />
+                </dd>
+              </div>
+              <div>
+                <dt className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-mist">
+                  Uptime
+                </dt>
+                <dd className="mt-2 font-display text-3xl font-semibold tracking-tight text-foreground">
+                  <Counter value={99.99} decimals={2} suffix="%" />
+                </dd>
+              </div>
+            </dl>
+          </Reveal>
         </div>
 
-        <HeroMockDashboard />
+        <Reveal delay={200} className="relative">
+          <div className="pointer-events-none absolute -inset-12 -z-10 mesh-glow animate-gradient-drift" aria-hidden />
+          <div className="relative mx-auto aspect-square w-full max-w-[560px]">
+            <div className="absolute inset-0 animate-float-slow">
+              <AINetwork className="h-full w-full" />
+            </div>
+            {/* Floating glass status cards */}
+            <FloatingCard
+              className="left-2 top-6 animate-float-medium"
+              dot="bg-success"
+              label="Voice Receptionist"
+              meta="Answering · 428 today"
+            />
+            <FloatingCard
+              className="right-0 top-1/2 -translate-y-1/2 [animation-delay:1.2s] animate-float-medium"
+              dot="bg-primary"
+              label="WhatsApp Agent"
+              meta="2,876 conversations"
+            />
+            <FloatingCard
+              className="bottom-6 left-1/2 -translate-x-1/2 [animation-delay:2s] animate-float-medium"
+              dot="bg-[color:var(--accent-cyan)]"
+              label="Appointment Setter"
+              meta="Booked 64 · Today"
+            />
+          </div>
+        </Reveal>
       </div>
     </section>
   );
 }
 
-function HeroMockDashboard() {
-  const rows = [
-    { name: "Aria — Voice Receptionist", status: "Live", calls: "428", color: "success" },
-    { name: "Marcus — Sales Employee", status: "Live", calls: "1,204", color: "success" },
-    { name: "Nova — WhatsApp Agent", status: "Live", calls: "2,876", color: "success" },
-    { name: "Atlas — Appointment Setter", status: "Live", calls: "612", color: "success" },
-  ];
+function FloatingCard({
+  className = "",
+  dot,
+  label,
+  meta,
+}: {
+  className?: string;
+  dot: string;
+  label: string;
+  meta: string;
+}) {
   return (
-    <div className="relative mx-auto mt-16 max-w-5xl">
-      <div className="absolute -inset-x-12 -inset-y-8 -z-0 hero-glow opacity-60" aria-hidden />
-      <div className="surface-card relative overflow-hidden p-2 shadow-[0_20px_60px_-20px_oklch(0_0_0_/_0.7)]">
-        <div className="rounded-[calc(var(--radius-2xl)-4px)] border border-border bg-background/60 p-5">
-          <div className="flex items-center justify-between border-b border-border pb-4">
-            <div className="flex items-center gap-3">
-              <span className="size-2 animate-pulse-dot rounded-full bg-success" />
-              <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-mist">
-                AI Workforce — Live
-              </span>
-            </div>
-            <span className="font-mono text-[11px] text-mist">workspace.indudivine</span>
-          </div>
-          <div className="mt-4 divide-y divide-border">
-            {rows.map((row) => (
-              <div
-                key={row.name}
-                className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-3 sm:flex sm:items-center sm:justify-between"
-              >
-                <div className="flex min-w-0 items-center gap-3">
-                  <span className="grid size-9 shrink-0 place-items-center rounded-full bg-primary/15 text-primary-glow">
-                    <span className="size-2 rounded-full bg-primary" />
-                  </span>
-                  <div className="min-w-0">
-                    <div className="truncate text-sm font-medium text-foreground">
-                      {row.name}
-                    </div>
-                    <div className="font-mono text-[10px] uppercase tracking-widest text-mist">
-                      {row.status}
-                    </div>
-                  </div>
-                </div>
-                <div className="text-right font-mono text-xs text-mist">
-                  {row.calls}{" "}
-                  <span className="text-[10px] uppercase tracking-widest">today</span>
-                </div>
-              </div>
-            ))}
-          </div>
+    <div
+      className={`absolute glass-panel flex items-center gap-3 px-4 py-3 shadow-[var(--shadow-float)] ${className}`}
+    >
+      <span className={`size-2 animate-pulse-dot rounded-full ${dot}`} />
+      <div>
+        <div className="text-[12.5px] font-semibold text-foreground">{label}</div>
+        <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-mist">
+          {meta}
         </div>
       </div>
     </div>
   );
 }
 
-function ProblemSection() {
-  const items = [
-    "Calls go unanswered",
-    "Leads are never followed up",
-    "Appointments are missed",
-    "WhatsApp messages stay unread",
-    "Manual tasks slow growth",
-    "Response delays cost revenue",
+/* ---------------- LOGO MARQUEE / TRUST ---------------- */
+
+function LogoMarquee() {
+  const verticals = [
+    "Healthcare",
+    "Real Estate",
+    "Finance",
+    "Education",
+    "Manufacturing",
+    "Insurance",
+    "Hospitality",
+    "Automotive",
+    "Legal",
+    "Construction",
   ];
   return (
-    <section className="border-y border-border bg-background py-20 sm:py-28">
-      <div className="container-page grid gap-12 lg:grid-cols-2">
-        <SectionHeader
-          eyebrow="The Problem"
-          title="Most businesses lose customers every single day."
-          description="Your team is busy. Every unanswered call, late follow-up and ignored WhatsApp message is revenue walking out the door — to a competitor that responded faster."
-        />
-        <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          {items.map((item) => (
-            <li
-              key={item}
-              className="surface-card flex items-start gap-3 p-4 text-sm text-foreground"
+    <section className="border-y border-border bg-surface/60">
+      <div className="container-page py-10">
+        <p className="text-center font-mono text-[10.5px] uppercase tracking-[0.22em] text-mist">
+          Trusted across regulated, high-stakes industries
+        </p>
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+          {verticals.map((v) => (
+            <span
+              key={v}
+              className="font-display text-[15px] font-medium tracking-tight text-foreground/70 transition hover:text-foreground"
             >
-              <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-destructive" />
-              {item}
-            </li>
+              {v}
+            </span>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );
 }
 
-function SolutionSection() {
-  return (
-    <section className="py-20 sm:py-28">
-      <div className="container-page">
-        <SectionHeader
-          eyebrow="The Solution"
-          title="Meet your new AI workforce."
-          description="Our AI Employees work around the clock to handle customer communication, sales conversations, appointment scheduling and repetitive operations. Unlike software, they interact naturally with customers and become an extension of your business."
-          align="center"
-        />
-      </div>
-    </section>
-  );
-}
+/* ---------------- SERVICES ---------------- */
 
-function ServicesSection() {
+function ServicesShowcase() {
   return (
-    <section className="border-y border-border bg-surface/30 py-20 sm:py-28">
+    <section className="py-28 sm:py-36">
       <div className="container-page">
-        <SectionHeader
-          eyebrow="AI Employees"
-          title="A complete team. Hired on day one."
-          description="Each AI Employee is purpose-built for a specific role — and trained on your business knowledge."
-        />
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.map((service) => {
+        <Reveal>
+          <SectionHeader
+            eyebrow="The Workforce"
+            title="A complete AI team. Hired on day one."
+            description="Each AI Employee is purpose-built for one role — and trained on your business knowledge, tone and customers."
+          />
+        </Reveal>
+        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {SERVICES.map((service, i) => {
             const Icon = SERVICE_ICONS[service.slug];
+            const featured = i === 0;
             return (
-              <article
-                key={service.slug}
-                className="surface-card surface-card-hover group flex flex-col p-6"
-              >
-                <div className="flex items-start justify-between">
-                  <span className="grid size-11 place-items-center rounded-xl bg-primary/15 text-primary-glow ring-1 ring-primary/20">
-                    {Icon && <Icon className="size-5" />}
-                  </span>
-                  <span className="rounded-full border border-border bg-background/60 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-mist">
-                    {service.role}
-                  </span>
-                </div>
-                <h3 className="mt-5 font-display text-lg font-semibold text-foreground">
-                  {service.name}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-mist">
-                  {service.description}
-                </p>
-                <ul className="mt-4 space-y-2">
-                  {service.bullets.slice(0, 4).map((b) => (
-                    <li key={b} className="flex items-center gap-2 text-xs text-mist">
-                      <Check className="size-3.5 text-primary-glow" /> {b}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  to="/services"
-                  className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-primary-glow transition group-hover:gap-2"
+              <Reveal key={service.slug} delay={i * 60}>
+                <article
+                  className={`surface-card surface-card-hover group relative flex h-full flex-col overflow-hidden p-7 ${
+                    featured ? "sm:col-span-2 lg:col-span-2" : ""
+                  }`}
                 >
-                  Explore <ArrowRight className="size-3.5" />
-                </Link>
-              </article>
+                  <div
+                    className="pointer-events-none absolute -right-20 -top-20 size-56 rounded-full opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                    aria-hidden
+                    style={{
+                      background:
+                        "radial-gradient(closest-side, color-mix(in oklab, var(--primary) 30%, transparent), transparent)",
+                    }}
+                  />
+                  <div className="flex items-start justify-between gap-4">
+                    <span className="grid size-12 place-items-center rounded-2xl bg-[color-mix(in_oklab,var(--primary)_10%,white)] text-primary ring-1 ring-inset ring-[color-mix(in_oklab,var(--primary)_18%,transparent)]">
+                      {Icon && <Icon className="size-5" strokeWidth={1.8} />}
+                    </span>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-mist">
+                      {service.role}
+                    </span>
+                  </div>
+                  <h3 className="mt-7 font-display text-[22px] font-semibold tracking-tight text-foreground">
+                    {service.name}
+                  </h3>
+                  <p className="mt-3 max-w-md text-[14.5px] leading-relaxed text-mist">
+                    {service.description}
+                  </p>
+                  {featured && (
+                    <ul className="mt-6 grid grid-cols-2 gap-2">
+                      {service.bullets.slice(0, 4).map((b) => (
+                        <li
+                          key={b}
+                          className="flex items-center gap-2 text-[13px] text-mist"
+                        >
+                          <Check className="size-3.5 text-primary" /> {b}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <div className="mt-auto pt-8">
+                    <Link
+                      to="/services"
+                      className="inline-flex items-center gap-1 text-[13.5px] font-semibold text-primary transition-all duration-300 group-hover:gap-2"
+                    >
+                      Explore <ArrowRight className="size-3.5" />
+                    </Link>
+                  </div>
+                </article>
+              </Reveal>
             );
           })}
         </div>
@@ -291,32 +313,129 @@ function ServicesSection() {
   );
 }
 
-function IndustriesSection() {
+/* ---------------- PLATFORM PILLARS ---------------- */
+
+function PlatformSection() {
+  const pillars = [
+    {
+      icon: Shield,
+      title: "Enterprise security",
+      desc: "Encryption at rest and in transit. Role-based access. Regional data residency by default.",
+    },
+    {
+      icon: Activity,
+      title: "Always-on observability",
+      desc: "Every conversation logged, scored and reviewable. Live dashboards for QA, intent and CSAT.",
+    },
+    {
+      icon: Globe2,
+      title: "Omnichannel by design",
+      desc: "Voice, WhatsApp, web, SMS and CRM — orchestrated as one continuous customer journey.",
+    },
+    {
+      icon: Lock,
+      title: "Private by default",
+      desc: "Your knowledge base is yours. No third-party training. Zero data retention modes available.",
+    },
+    {
+      icon: Clock4,
+      title: "Built to scale instantly",
+      desc: "Handle 10 or 10,000 concurrent conversations without queues, throttling or extra hires.",
+    },
+    {
+      icon: Sparkles,
+      title: "Crafted for your business",
+      desc: "Trained on your tone of voice, products and workflows. Indistinguishable from your best rep.",
+    },
+  ];
   return (
-    <section className="py-20 sm:py-28">
+    <section className="relative overflow-hidden border-y border-border bg-surface/50 py-28 sm:py-36">
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 opacity-40 animate-gradient-drift mesh-glow"
+        aria-hidden
+      />
       <div className="container-page">
-        <SectionHeader
-          eyebrow="Industries"
-          title="Built for the businesses we serve."
-          description="Pre-trained AI Employees, customized for your industry's language, workflows and customer journeys."
-        />
-        <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-          {INDUSTRIES.slice(0, 8).map((industry) => {
+        <Reveal>
+          <SectionHeader
+            eyebrow="The Platform"
+            title="Built like infrastructure. Used like a teammate."
+            description="The same engineering rigor you expect from Stripe, Linear or Vercel — applied to AI that talks to your customers."
+          />
+        </Reveal>
+        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {pillars.map((p, i) => (
+            <Reveal key={p.title} delay={i * 50}>
+              <div className="surface-card surface-card-hover h-full p-7">
+                <span className="grid size-10 place-items-center rounded-xl bg-foreground text-background">
+                  <p.icon className="size-4.5" strokeWidth={1.8} />
+                </span>
+                <h3 className="mt-6 font-display text-lg font-semibold tracking-tight">
+                  {p.title}
+                </h3>
+                <p className="mt-2 text-[14px] leading-relaxed text-mist">{p.desc}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- INDUSTRIES ---------------- */
+
+function IndustriesShowcase() {
+  return (
+    <section className="py-28 sm:py-36">
+      <div className="container-page">
+        <Reveal>
+          <SectionHeader
+            eyebrow="Industries"
+            title="Pre-trained for the businesses we serve."
+            description="Vertical-tuned AI Employees that speak your industry's language, follow its rules, and meet its outcomes."
+          />
+        </Reveal>
+        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {INDUSTRIES.slice(0, 6).map((industry, i) => {
             const Icon = industry.icon;
             return (
-              <Link
-                key={industry.slug}
-                to="/industries"
-                className="surface-card surface-card-hover group flex flex-col gap-4 p-5"
-              >
-                <Icon className="size-6 text-primary-glow" />
-                <div>
-                  <div className="font-display text-base font-semibold text-foreground">
+              <Reveal key={industry.slug} delay={i * 60}>
+                <Link
+                  to="/industries"
+                  className="surface-card surface-card-hover group relative flex h-full flex-col overflow-hidden p-7"
+                >
+                  <div
+                    className="pointer-events-none absolute inset-x-0 -top-24 h-48 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                    aria-hidden
+                    style={{
+                      background:
+                        "radial-gradient(60% 80% at 50% 100%, color-mix(in oklab, var(--primary) 25%, transparent), transparent)",
+                    }}
+                  />
+                  <Icon className="size-7 text-primary" strokeWidth={1.6} />
+                  <h3 className="mt-7 font-display text-xl font-semibold tracking-tight">
                     {industry.name}
+                  </h3>
+                  <p className="mt-2 text-[14px] leading-relaxed text-mist">
+                    {industry.blurb}
+                  </p>
+                  <div className="mt-6 max-h-0 overflow-hidden opacity-0 transition-all duration-500 group-hover:max-h-40 group-hover:opacity-100">
+                    <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-mist">
+                      Outcomes
+                    </div>
+                    <ul className="mt-2 space-y-1.5">
+                      {industry.benefits.slice(0, 3).map((b) => (
+                        <li key={b} className="flex items-center gap-2 text-[13px] text-foreground">
+                          <Check className="size-3.5 text-primary" /> {b}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <div className="mt-1 text-xs text-mist">{industry.blurb}</div>
-                </div>
-              </Link>
+                  <div className="mt-auto pt-8 inline-flex items-center gap-1 text-[13px] font-semibold text-primary">
+                    View industry <ArrowRight className="size-3.5" />
+                  </div>
+                </Link>
+              </Reveal>
             );
           })}
         </div>
@@ -324,131 +443,171 @@ function IndustriesSection() {
     </section>
   );
 }
+
+/* ---------------- PROCESS ---------------- */
 
 function ProcessSection() {
+  const steps = [
+    { n: "01", title: "Discovery", desc: "Map your goals, channels and customer journey." },
+    { n: "02", title: "Design", desc: "Architect the right AI Employees for your business." },
+    { n: "03", title: "Deploy", desc: "Integrate with CRM, telephony, WhatsApp and calendars." },
+    { n: "04", title: "Optimize", desc: "Iterate weekly on conversion, CSAT and unit economics." },
+  ];
   return (
-    <section className="border-y border-border bg-surface/30 py-20 sm:py-28">
-      <div className="container-page">
-        <SectionHeader
-          eyebrow="How It Works"
-          title="From kickoff to continuous optimization."
-        />
-        <ol className="relative mt-12 grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2 lg:grid-cols-4">
-          {PROCESS_STEPS.map((step) => (
-            <li key={step.n} className="bg-surface/90 p-6">
-              <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary-glow">
-                Step {step.n}
-              </div>
-              <div className="mt-3 font-display text-base font-semibold text-foreground">
-                {step.title}
-              </div>
-              <p className="mt-2 text-sm text-mist">{step.desc}</p>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </section>
-  );
-}
-
-function WhyChooseSection() {
-  const icons = [Shield, Clock, Zap, Sparkles];
-  return (
-    <section className="py-20 sm:py-28">
-      <div className="container-page">
-        <SectionHeader
-          eyebrow="Why Indu Divine"
-          title="An AI partner built for serious businesses."
-        />
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {TRUST_PILLARS.map((label, i) => {
-            const Icon = icons[i % icons.length];
-            return (
-              <div key={label} className="surface-card p-6">
-                <Icon className="size-5 text-primary-glow" />
-                <div className="mt-4 font-display text-base font-semibold text-foreground">
-                  {label}
+    <section className="relative border-y border-border bg-foreground py-28 text-background sm:py-36">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-30"
+        aria-hidden
+        style={{
+          background:
+            "radial-gradient(50% 60% at 50% 0%, color-mix(in oklab, #0A84FF 60%, transparent), transparent 70%)",
+        }}
+      />
+      <div className="container-page relative">
+        <div className="max-w-2xl">
+          <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 font-mono text-[10.5px] uppercase tracking-[0.2em] text-white/70">
+            How it works
+          </p>
+          <h2 className="mt-6 font-display text-3xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl">
+            From kickoff to a live AI workforce — in weeks.
+          </h2>
+        </div>
+        <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 md:grid-cols-4">
+          {steps.map((s, i) => (
+            <Reveal key={s.n} delay={i * 80}>
+              <div className="h-full bg-foreground p-8">
+                <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-[color:var(--accent-cyan)]">
+                  Step {s.n}
                 </div>
+                <div className="mt-5 font-display text-xl font-semibold tracking-tight text-white">
+                  {s.title}
+                </div>
+                <p className="mt-2 text-[14px] leading-relaxed text-white/65">{s.desc}</p>
               </div>
-            );
-          })}
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
+/* ---------------- RESULTS ---------------- */
+
 function ResultsSection() {
-  const items = [
-    "Increase Lead Conversion",
-    "Reduce Response Time",
-    "Automate Customer Communication",
-    "Reduce Manual Work",
-    "Improve Customer Experience",
-    "Scale Faster",
+  const stats = [
+    { value: 87, suffix: "%", label: "Faster response", desc: "Median first-response time across voice and chat." },
+    { value: 3.2, suffix: "×", label: "Lead conversion", desc: "Lift vs. legacy outbound and inbound funnels.", decimals: 1 },
+    { value: 64, suffix: "%", label: "Less manual work", desc: "Hours returned to teams every week, on average." },
   ];
   return (
-    <section className="border-y border-border bg-surface/30 py-20 sm:py-28">
+    <section className="py-28 sm:py-36">
       <div className="container-page">
-        <SectionHeader
-          eyebrow="Outcomes"
-          title="Businesses choose us to grow."
-          description="We don't replace people. We eliminate the repetitive work so your team focuses on growth."
-        />
-        <ul className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {items.map((item) => (
-            <li
-              key={item}
-              className="surface-card flex items-center gap-3 p-5 text-sm font-medium text-foreground"
-            >
-              <Check className="size-4 text-primary-glow" /> {item}
-            </li>
+        <Reveal>
+          <SectionHeader
+            eyebrow="Outcomes"
+            title="Real numbers. Measured the way your CFO would."
+            description="We optimise for revenue, response time and customer experience — not vanity metrics."
+            align="center"
+          />
+        </Reveal>
+        <div className="mt-16 grid gap-5 sm:grid-cols-3">
+          {stats.map((s, i) => (
+            <Reveal key={s.label} delay={i * 80}>
+              <div className="surface-card flex h-full flex-col p-10">
+                <div className="font-display text-6xl font-semibold tracking-[-0.03em] text-foreground">
+                  <Counter value={s.value} suffix={s.suffix} decimals={s.decimals ?? 0} />
+                </div>
+                <div className="mt-3 font-display text-base font-semibold tracking-tight text-foreground">
+                  {s.label}
+                </div>
+                <p className="mt-2 text-[14px] leading-relaxed text-mist">{s.desc}</p>
+              </div>
+            </Reveal>
           ))}
-        </ul>
+        </div>
+
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {["Enterprise-ready", "24×7 availability", "Custom integrations", "Dedicated support"].map(
+            (label, i) => (
+              <Reveal key={label} delay={i * 60}>
+                <div className="surface-card flex items-center gap-3 p-5">
+                  <Zap className="size-4 text-primary" />
+                  <span className="text-[14px] font-medium text-foreground">{label}</span>
+                </div>
+              </Reveal>
+            ),
+          )}
+        </div>
       </div>
     </section>
   );
 }
+
+/* ---------------- CASE STUDIES ---------------- */
 
 function CaseStudiesPreview() {
   return (
-    <section className="py-20 sm:py-28">
+    <section className="border-t border-border bg-surface/50 py-28 sm:py-36">
       <div className="container-page">
         <div className="flex flex-wrap items-end justify-between gap-6">
-          <SectionHeader
-            eyebrow="Case Studies"
-            title="Real businesses. Real automation."
-          />
+          <Reveal>
+            <SectionHeader
+              eyebrow="Customers"
+              title="Real businesses. Real automation."
+            />
+          </Reveal>
           <Link
             to="/case-studies"
-            className="inline-flex items-center gap-1 text-sm font-semibold text-primary-glow"
+            className="inline-flex items-center gap-1 text-[13.5px] font-semibold text-primary"
           >
-            View all <ArrowRight className="size-4" />
+            View all stories <ArrowRight className="size-3.5" />
           </Link>
         </div>
-        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {CASE_STUDIES.slice(0, 3).map((cs) => (
-            <article key={cs.slug} className="surface-card surface-card-hover p-6">
-              <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary-glow">
-                {cs.industry}
-              </div>
-              <h3 className="mt-3 font-display text-lg font-semibold text-foreground">
-                {cs.title}
-              </h3>
-              <p className="mt-3 text-sm text-mist">{cs.challenge}</p>
-              <div className="mt-5 border-t border-border pt-4">
-                <div className="font-mono text-[10px] uppercase tracking-widest text-mist">
-                  Outcomes
+        <div className="mt-14 space-y-5">
+          {CASE_STUDIES.slice(0, 3).map((cs, i) => (
+            <Reveal key={cs.slug} delay={i * 80}>
+              <article className="surface-card surface-card-hover group grid items-start gap-8 p-8 lg:grid-cols-[1fr_2fr] lg:p-10">
+                <div>
+                  <div className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-primary">
+                    {cs.industry}
+                  </div>
+                  <h3 className="mt-4 font-display text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+                    {cs.title}
+                  </h3>
                 </div>
-                <ul className="mt-2 space-y-1.5">
-                  {cs.outcomes.slice(0, 3).map((o) => (
-                    <li key={o} className="flex items-center gap-2 text-xs text-foreground">
-                      <Check className="size-3.5 text-primary-glow" /> {o}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </article>
+                <div className="grid gap-6 sm:grid-cols-3">
+                  <div>
+                    <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-mist">
+                      Challenge
+                    </div>
+                    <p className="mt-2 text-[13.5px] leading-relaxed text-foreground/80">
+                      {cs.challenge}
+                    </p>
+                  </div>
+                  <div>
+                    <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-mist">
+                      Solution
+                    </div>
+                    <p className="mt-2 text-[13.5px] leading-relaxed text-foreground/80">
+                      {cs.solution}
+                    </p>
+                  </div>
+                  <div>
+                    <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-mist">
+                      Impact
+                    </div>
+                    <ul className="mt-2 space-y-1.5">
+                      {cs.outcomes.slice(0, 3).map((o) => (
+                        <li key={o} className="flex items-start gap-2 text-[13px] text-foreground/85">
+                          <Check className="mt-0.5 size-3.5 shrink-0 text-primary" /> {o}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>
