@@ -132,13 +132,15 @@ export function SiteHeader() {
                 </Link>
               ))}
             </nav>
-            <Link
-              to="/contact"
+            <a
+              href="https://calendly.com/vaishk1212/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               className="btn-primary mt-6 w-full"
             >
               Book a demo
-            </Link>
+            </a>
           </div>
         </div>
       )}
