@@ -14,7 +14,7 @@ export function PageHero({
   eyebrow,
   title,
   description,
-  primaryCta = { to: "/contact", label: "Book a demo" },
+  primaryCta = { to: "https://calendly.com/vaishk1212/30min", label: "Book a demo" },
   secondaryCta = { to: "/contact", label: "Talk to sales" },
 }: Props) {
   return (
