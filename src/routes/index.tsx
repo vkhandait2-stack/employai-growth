@@ -91,7 +91,7 @@ function Hero() {
           maskImage: "radial-gradient(60% 60% at 50% 10%, black 30%, transparent 100%)",
         }}
       />
-      <div className="container-page relative grid items-center gap-20 pb-32 pt-24 sm:pt-32 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-40 lg:pt-40">
+      <div className="container-page relative grid items-center gap-14 pb-20 pt-16 sm:gap-20 sm:pb-32 sm:pt-32 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-40 lg:pt-40">
         <div>
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-3.5 py-1.5 font-mono text-[10.5px] uppercase tracking-[0.22em] text-mist backdrop-blur-xl">
@@ -136,7 +136,7 @@ function Hero() {
             </div>
           </Reveal>
           <Reveal delay={360}>
-            <dl className="mt-16 grid max-w-xl grid-cols-3 gap-8 border-t border-border pt-10">
+            <dl className="mt-12 grid max-w-xl grid-cols-3 gap-6 border-t border-border pt-8 sm:mt-16 sm:gap-8 sm:pt-10">
               <div>
                 <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-mist">
                   Conversations
