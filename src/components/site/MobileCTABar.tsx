@@ -27,13 +27,15 @@ export function MobileCTABar() {
         className="glass-panel flex items-center gap-2 p-2"
         style={{ boxShadow: "0 12px 40px -10px oklch(0.22 0.04 260 / 0.18)" }}
       >
-        <Link
-          to="/contact"
+        <a
+          href="https://calendly.com/vaishk1212/30min"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex h-11 flex-1 items-center justify-center gap-1.5 rounded-full bg-foreground text-[13.5px] font-semibold text-background transition active:scale-[0.98]"
         >
           Book free demo
           <ArrowUpRight className="size-3.5" />
-        </Link>
+        </a>
         <Link
           to="/contact"
           aria-label="Talk to AI"
