@@ -87,8 +87,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Indu Divine AI | AI Voice, WhatsApp & Business Automation" },
       { name: "twitter:description", content: "Automate your business with AI Voice Receptionists, AI Sales Employees, WhatsApp AI Agents, Appointment Booking and Workflow Automation. Book a free demo today." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/OnmK4myr2tb3JhgcAs7J05yu4um1/social-images/social-1782748458403-1000799370.webp" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/OnmK4myr2tb3JhgcAs7J05yu4um1/social-images/social-1782748458403-1000799370.webp" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/OnmK4myr2tb3JhgcAs7J05yu4um1/social-images/social-1782748648863-1000799370.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/OnmK4myr2tb3JhgcAs7J05yu4um1/social-images/social-1782748648863-1000799370.webp" },
     ],
     links: [
       {
