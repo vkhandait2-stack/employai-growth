@@ -118,21 +118,28 @@ function Hero() {
           </Reveal>
           <Reveal delay={260}>
             <div className="mt-12 flex flex-wrap items-center gap-3">
-              <Link to="/contact" className="btn-primary group">
+              <a
+                href="https://calendly.com/vaishk1212/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary group"
+              >
                 Book free demo
                 <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </Link>
+              </a>
               <Link to="/contact" className="btn-glass group">
                 <Mic className="size-4" />
                 Talk to AI
               </Link>
-              <Link
-                to="/contact"
+              <a
+                href="https://calendly.com/vaishk1212/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-2 py-2 text-[13.5px] font-semibold text-foreground transition hover:text-primary"
               >
                 <PlayCircle className="size-4" />
                 Request proposal
-              </Link>
+              </a>
             </div>
           </Reveal>
           <Reveal delay={360}>
