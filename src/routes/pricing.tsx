@@ -67,7 +67,7 @@ function PricingPage() {
         eyebrow="Pricing"
         title="Flexible AI solutions designed around your business."
         description="Every business has different requirements. Instead of fixed packages, we craft customized AI solutions based on your size, workflows and automation goals."
-        primaryCta={{ to: "/contact", label: "Request Pricing" }}
+        primaryCta={{ to: "https://calendly.com/vaishk1212/30min", label: "Request Pricing" }}
       />
       <section className="py-20 sm:py-28">
         <div className="container-page grid gap-5 md:grid-cols-3">
