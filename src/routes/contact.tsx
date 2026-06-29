@@ -54,7 +54,7 @@ function ContactPage() {
         eyebrow="Contact"
         title="Let's build your AI workforce."
         description="Tell us about your business and we'll design an AI workforce that fits. Most demos are booked within 1 business day."
-        primaryCta={{ to: "/contact", label: "Book Free Demo" }}
+        primaryCta={{ to: "https://calendly.com/vaishk1212/30min", label: "Book Free Demo" }}
       />
       <section className="py-20 sm:py-28">
         <div className="container-page grid gap-10 lg:grid-cols-[1fr_1.4fr]">

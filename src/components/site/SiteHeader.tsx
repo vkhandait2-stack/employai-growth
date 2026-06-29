@@ -76,13 +76,15 @@ export function SiteHeader() {
           >
             Sign in
           </Link>
-          <Link
-            to="/contact"
+          <a
+            href="https://calendly.com/vaishk1212/30min"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex h-9 items-center justify-center gap-1.5 rounded-full bg-foreground px-4 text-[13px] font-semibold text-background transition-all duration-300 hover:-translate-y-px hover:bg-primary hover:shadow-[0_10px_28px_-10px_color-mix(in_oklab,var(--primary)_70%,transparent)]"
           >
             Book a demo
             <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
+          </a>
         </div>
 
         <button
@@ -130,13 +132,15 @@ export function SiteHeader() {
                 </Link>
               ))}
             </nav>
-            <Link
-              to="/contact"
+            <a
+              href="https://calendly.com/vaishk1212/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               className="btn-primary mt-6 w-full"
             >
               Book a demo
-            </Link>
+            </a>
           </div>
         </div>
       )}

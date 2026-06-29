@@ -48,13 +48,15 @@ export function CTASection({
               {description}
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-3">
-              <Link
-                to="/contact"
+              <a
+                href="https://calendly.com/vaishk1212/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-7 text-sm font-semibold text-foreground transition-all duration-300 hover:bg-white hover:shadow-[0_20px_50px_-10px_rgba(255,255,255,0.4)]"
               >
                 Book a demo
                 <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </Link>
+              </a>
               <Link
                 to="/pricing"
                 className="inline-flex h-12 items-center justify-center rounded-full border border-white/20 bg-white/5 px-7 text-sm font-semibold text-white backdrop-blur transition-all duration-300 hover:bg-white/10"

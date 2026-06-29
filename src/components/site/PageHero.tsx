@@ -14,7 +14,7 @@ export function PageHero({
   eyebrow,
   title,
   description,
-  primaryCta = { to: "/contact", label: "Book a demo" },
+  primaryCta = { to: "https://calendly.com/vaishk1212/30min", label: "Book a demo" },
   secondaryCta = { to: "/contact", label: "Talk to sales" },
 }: Props) {
   return (
@@ -40,13 +40,36 @@ export function PageHero({
             {description}
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
-            <Link to={primaryCta.to} className="btn-primary group">
-              {primaryCta.label}
-              <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
-            <Link to={secondaryCta.to} className="btn-glass">
-              {secondaryCta.label}
-            </Link>
+            {primaryCta.to.startsWith("http") ? (
+              <a
+                href={primaryCta.to}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary group"
+              >
+                {primaryCta.label}
+                <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+            ) : (
+              <Link to={primaryCta.to} className="btn-primary group">
+                {primaryCta.label}
+                <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
+            )}
+            {secondaryCta.to.startsWith("http") ? (
+              <a
+                href={secondaryCta.to}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-glass"
+              >
+                {secondaryCta.label}
+              </a>
+            ) : (
+              <Link to={secondaryCta.to} className="btn-glass">
+                {secondaryCta.label}
+              </Link>
+            )}
           </div>
         </div>
       </div>

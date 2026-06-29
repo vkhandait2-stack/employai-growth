@@ -67,7 +67,7 @@ function PricingPage() {
         eyebrow="Pricing"
         title="Flexible AI solutions designed around your business."
         description="Every business has different requirements. Instead of fixed packages, we craft customized AI solutions based on your size, workflows and automation goals."
-        primaryCta={{ to: "/contact", label: "Request Pricing" }}
+        primaryCta={{ to: "https://calendly.com/vaishk1212/30min", label: "Request Pricing" }}
       />
       <section className="py-20 sm:py-28">
         <div className="container-page grid gap-5 md:grid-cols-3">
@@ -95,16 +95,31 @@ function PricingPage() {
                   </li>
                 ))}
               </ul>
-              <Link
-                to="/contact"
-                className={`mt-8 inline-flex h-11 items-center justify-center rounded-full text-sm font-semibold transition ${
-                  p.highlight
-                    ? "bg-primary text-primary-foreground shadow-glow hover:opacity-90"
-                    : "border border-border-strong bg-surface text-foreground hover:bg-surface-elevated"
-                }`}
-              >
-                {p.cta}
-              </Link>
+              {p.cta === "Talk To Sales" ? (
+                <Link
+                  to="/contact"
+                  className={`mt-8 inline-flex h-11 items-center justify-center rounded-full text-sm font-semibold transition ${
+                    p.highlight
+                      ? "bg-primary text-primary-foreground shadow-glow hover:opacity-90"
+                      : "border border-border-strong bg-surface text-foreground hover:bg-surface-elevated"
+                  }`}
+                >
+                  {p.cta}
+                </Link>
+              ) : (
+                <a
+                  href="https://calendly.com/vaishk1212/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`mt-8 inline-flex h-11 items-center justify-center rounded-full text-sm font-semibold transition ${
+                    p.highlight
+                      ? "bg-primary text-primary-foreground shadow-glow hover:opacity-90"
+                      : "border border-border-strong bg-surface text-foreground hover:bg-surface-elevated"
+                  }`}
+                >
+                  {p.cta}
+                </a>
+              )}
             </article>
           ))}
         </div>
