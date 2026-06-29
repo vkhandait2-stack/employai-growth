@@ -136,7 +136,7 @@ function Hero() {
             </div>
           </Reveal>
           <Reveal delay={360}>
-            <dl className="mt-16 grid max-w-xl grid-cols-3 gap-8 border-t border-border pt-10">
+            <dl className="mt-12 grid max-w-xl grid-cols-3 gap-6 border-t border-border pt-8 sm:mt-16 sm:gap-8 sm:pt-10">
               <div>
                 <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-mist">
                   Conversations
