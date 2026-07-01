@@ -7,62 +7,42 @@ interface Props {
   description?: string;
 }
 
+const CAL = "https://calendly.com/vaishk1212/30min";
+
 export function CTASection({
-  eyebrow = "Get started",
-  title = "Hire your first AI Employee in days, not months.",
-  description = "Talk to an automation strategist. We'll map your highest-leverage workflow and show you exactly how an AI Employee will run it 24/7.",
+  eyebrow = "Get started in 48 hours",
+  title = "Your AI Employees are ready. Are you?",
+  description = "Join 1,000+ businesses automating customer support, sales and follow-ups. 7-day free trial. No credit card required.",
 }: Props) {
   return (
-    <section className="relative overflow-hidden py-28 sm:py-36">
-      <div
-        className="pointer-events-none absolute inset-0 -z-10 mesh-glow animate-gradient-drift"
-        aria-hidden
-      />
+    <section className="relative overflow-hidden py-24 sm:py-32">
+      <div className="pointer-events-none absolute inset-0 -z-10 mesh-glow animate-gradient-drift" aria-hidden />
       <div className="container-page relative">
-        <div className="relative overflow-hidden rounded-[32px] border border-border bg-foreground px-8 py-20 text-center sm:px-16 sm:py-28">
+        <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-[#131a35] to-[#0A0E27] px-8 py-20 text-center sm:px-16 sm:py-28">
           <div
-            className="pointer-events-none absolute inset-0 opacity-60"
+            className="pointer-events-none absolute inset-0 opacity-80"
             aria-hidden
             style={{
-              background:
-                "radial-gradient(60% 80% at 50% 0%, color-mix(in oklab, var(--primary) 65%, transparent) 0%, transparent 70%)",
+              background: "radial-gradient(60% 80% at 50% 0%, rgba(255,215,0,0.16) 0%, transparent 70%)",
             }}
           />
-          <div
-            className="pointer-events-none absolute inset-0 opacity-[0.07]"
-            aria-hidden
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-              backgroundSize: "28px 28px",
-            }}
-          />
+          <div className="pointer-events-none absolute inset-0 grid-overlay opacity-40" aria-hidden />
           <div className="relative">
-            <p className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 font-mono text-[10.5px] uppercase tracking-[0.2em] text-white/70">
+            <p className="mx-auto inline-flex items-center gap-2 rounded-full border border-[#FFD700]/30 bg-[#FFD700]/8 px-3 py-1 font-mono text-[10.5px] uppercase tracking-[0.22em] text-[#FFD700]">
               {eyebrow}
             </p>
-            <h2 className="mx-auto mt-7 max-w-3xl font-display text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl">
+            <h2 className="mx-auto mt-7 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl">
               {title}
             </h2>
-            <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/65 sm:text-lg">
+            <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
               {description}
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-3">
-              <a
-                href="https://calendly.com/vaishk1212/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-7 text-sm font-semibold text-foreground transition-all duration-300 hover:bg-white hover:shadow-[0_20px_50px_-10px_rgba(255,255,255,0.4)]"
-              >
-                Book a demo
+              <a href={CAL} target="_blank" rel="noopener noreferrer" className="btn-primary group">
+                Start Free Trial
                 <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
-              <Link
-                to="/pricing"
-                className="inline-flex h-12 items-center justify-center rounded-full border border-white/20 bg-white/5 px-7 text-sm font-semibold text-white backdrop-blur transition-all duration-300 hover:bg-white/10"
-              >
-                See pricing
-              </Link>
+              <Link to="/pricing" className="btn-glass">See pricing</Link>
             </div>
           </div>
         </div>

@@ -6,24 +6,21 @@ import { Logo } from "./Logo";
 const NAV = [
   { to: "/services", label: "Services" },
   { to: "/industries", label: "Industries" },
-  { to: "/solutions", label: "Solutions" },
-  { to: "/case-studies", label: "Customers" },
+  { to: "/solutions", label: "How It Works" },
   { to: "/pricing", label: "Pricing" },
-  { to: "/about", label: "Company" },
+  { to: "/case-studies", label: "Customers" },
+  { to: "/blog", label: "Blog" },
+  { to: "/contact", label: "Contact" },
 ] as const;
+
+const CAL = "https://calendly.com/vaishk1212/30min";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 8);
-      const doc = document.documentElement;
-      const max = doc.scrollHeight - doc.clientHeight;
-      setProgress(max > 0 ? Math.min(1, window.scrollY / max) : 0);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -31,17 +28,15 @@ export function SiteHeader() {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [open]);
 
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
         scrolled
-          ? "border-b border-border bg-background/75 backdrop-blur-2xl backdrop-saturate-150"
-          : "border-b border-transparent bg-background/30 backdrop-blur-md"
+          ? "border-b border-white/8 bg-[#0F172A]/85 backdrop-blur-2xl backdrop-saturate-150"
+          : "border-b border-transparent bg-[#0F172A]/40 backdrop-blur-md"
       }`}
     >
       <div
@@ -51,38 +46,32 @@ export function SiteHeader() {
       >
         <Link to="/" className="flex items-center gap-2.5" aria-label="Indu Divine AI home">
           <Logo className={`${scrolled ? "size-7" : "size-8"} transition-all duration-500`} />
-          <span className="font-display text-[15px] font-semibold tracking-[-0.01em] text-foreground">
-            Indu Divine <span className="text-mist">AI</span>
+          <span className="font-display text-[15px] font-bold tracking-tight text-white">
+            Indu Divine <span className="text-gradient-gold">AI</span>
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-1 xl:flex" aria-label="Primary">
           {NAV.map((item) => (
             <Link
               key={item.to}
               to={item.to}
-              className="rounded-full px-3.5 py-1.5 text-[13px] font-medium text-mist transition-colors duration-300 hover:text-foreground"
-              activeProps={{ className: "text-foreground" }}
+              className="rounded-full px-3 py-1.5 text-[13px] font-medium text-mist transition-colors duration-300 hover:text-white"
+              activeProps={{ className: "text-white" }}
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2 lg:flex">
-          <Link
-            to="/contact"
-            className="rounded-full px-3.5 py-1.5 text-[13px] font-medium text-mist transition hover:text-foreground"
-          >
-            Sign in
-          </Link>
+        <div className="hidden items-center gap-2 xl:flex">
           <a
-            href="https://calendly.com/vaishk1212/30min"
+            href={CAL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex h-9 items-center justify-center gap-1.5 rounded-full bg-foreground px-4 text-[13px] font-semibold text-background transition-all duration-300 hover:-translate-y-px hover:bg-primary hover:shadow-[0_10px_28px_-10px_color-mix(in_oklab,var(--primary)_70%,transparent)]"
+            className="group inline-flex h-9 items-center justify-center gap-1.5 rounded-full border border-[#FFD700]/50 bg-transparent px-4 text-[13px] font-semibold text-white transition-all duration-300 hover:-translate-y-px hover:bg-[#FFD700]/8 hover:shadow-[0_0_24px_-4px_rgba(255,215,0,0.5)]"
           >
-            Book a demo
+            Start Free Trial
             <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </div>
@@ -90,7 +79,7 @@ export function SiteHeader() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="grid size-10 place-items-center rounded-full border border-border bg-white/80 text-foreground backdrop-blur lg:hidden"
+          className="grid size-10 place-items-center rounded-full border border-white/10 bg-white/5 text-white backdrop-blur xl:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
         >
@@ -98,48 +87,30 @@ export function SiteHeader() {
         </button>
       </div>
 
-      {/* scroll progress hairline */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-px overflow-hidden"
-      >
-        <div
-          className="h-full origin-left transition-transform duration-150 ease-out"
-          style={{
-            transform: `scaleX(${progress})`,
-            background:
-              "linear-gradient(90deg, var(--primary), var(--accent-cyan))",
-          }}
-        />
-      </div>
-
-
-
-
       {open && (
-        <div className="lg:hidden">
-          <div className="container-page border-t border-border pb-8 pt-4">
+        <div className="xl:hidden">
+          <div className="container-page border-t border-white/8 pb-8 pt-4">
             <nav className="flex flex-col gap-1" aria-label="Mobile">
               {NAV.map((item) => (
                 <Link
                   key={item.to}
                   to={item.to}
                   onClick={() => setOpen(false)}
-                  className="rounded-2xl px-4 py-3 text-base font-medium text-mist transition hover:bg-surface hover:text-foreground"
-                  activeProps={{ className: "text-foreground bg-surface" }}
+                  className="rounded-2xl px-4 py-3 text-base font-medium text-mist transition hover:bg-white/5 hover:text-white"
+                  activeProps={{ className: "text-white bg-white/5" }}
                 >
                   {item.label}
                 </Link>
               ))}
             </nav>
             <a
-              href="https://calendly.com/vaishk1212/30min"
+              href={CAL}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               className="btn-primary mt-6 w-full"
             >
-              Book a demo
+              Start Free Trial
             </a>
           </div>
         </div>
