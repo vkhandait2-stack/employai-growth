@@ -10,43 +10,31 @@ interface Props {
   secondaryCta?: { to: string; label: string };
 }
 
+const CAL = "https://calendly.com/vaishk1212/30min";
+
 export function PageHero({
   eyebrow,
   title,
   description,
-  primaryCta = { to: "https://calendly.com/vaishk1212/30min", label: "Book a demo" },
+  primaryCta = { to: CAL, label: "Start Free Trial" },
   secondaryCta = { to: "/contact", label: "Talk to sales" },
 }: Props) {
   return (
     <section className="relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10 hero-glow" aria-hidden />
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[420px] opacity-50"
-        aria-hidden
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 1px 1px, oklch(0.22 0.04 260 / 0.06) 1px, transparent 0)",
-          backgroundSize: "32px 32px",
-          maskImage: "linear-gradient(to bottom, black 30%, transparent 100%)",
-        }}
-      />
-      <div className="container-page relative pb-24 pt-24 sm:pb-32 sm:pt-32">
+      <div className="pointer-events-none absolute inset-0 -z-10 grid-overlay opacity-40" aria-hidden />
+      <div className="container-page relative pb-20 pt-20 sm:pb-28 sm:pt-28">
         <div className="mx-auto max-w-4xl text-center">
           <p className="eyebrow mx-auto">{eyebrow}</p>
-          <h1 className="mt-7 font-display text-[40px] font-semibold leading-[1.02] tracking-tight text-foreground sm:text-6xl md:text-7xl">
+          <h1 className="mt-7 font-display text-[38px] font-bold leading-[1.02] tracking-tight text-white sm:text-6xl md:text-7xl">
             {title}
           </h1>
-          <p className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-mist sm:text-xl">
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-mist sm:text-xl">
             {description}
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             {primaryCta.to.startsWith("http") ? (
-              <a
-                href={primaryCta.to}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary group"
-              >
+              <a href={primaryCta.to} target="_blank" rel="noopener noreferrer" className="btn-primary group">
                 {primaryCta.label}
                 <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
@@ -57,16 +45,11 @@ export function PageHero({
               </Link>
             )}
             {secondaryCta.to.startsWith("http") ? (
-              <a
-                href={secondaryCta.to}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-glass"
-              >
+              <a href={secondaryCta.to} target="_blank" rel="noopener noreferrer" className="btn-outline-gold">
                 {secondaryCta.label}
               </a>
             ) : (
-              <Link to={secondaryCta.to} className="btn-glass">
+              <Link to={secondaryCta.to} className="btn-outline-gold">
                 {secondaryCta.label}
               </Link>
             )}
